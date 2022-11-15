@@ -1,0 +1,21 @@
+
+@use '~@casimir.one/vue-elements/lib/styles/main';
+
+.v-application {
+  --v-primary-hover: #F2F2F2;
+
+  .theme--light {
+    .v-btn.v-btn--icon {
+      color: currentColor;
+    }
+  }
+
+  .v-btn--active.no-active::before {                                                                             
+    opacity: 0 !important;
+  }
+
+  .w-100 {
+    width: 100%;
+  }
+}
+

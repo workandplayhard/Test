@@ -1,0 +1,4 @@
+src/modules/moderation/components/PendingAssetsList/PendingAssetsList.vue
+config/env.js
+node_modules/**
+dist/**

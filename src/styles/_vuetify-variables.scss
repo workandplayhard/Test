@@ -1,0 +1,177 @@
+@use 'sass:map';
+
+// COLORS
+
+$shades: (
+  'black': #000000,
+  'white': #FFFFFF,
+);
+
+$material-light: (
+  'background': #F7F7F7,
+  'app-bar': map.get($shades, 'white'),
+  'text-fields': (
+    'outlined': rgba(map-get($shades, 'black'), 0.12),
+    'outlined-disabled': rgba(map-get($shades, 'black'), 0.06),
+    'outlined-hover': rgba(map-get($shades, 'black'), 0.24)
+  ),
+  'text': (
+    'primary': rgba(map-get($shades, 'black'), 0.95),
+  ),
+);
+
+// TEXT
+
+$headings: (
+  'h1': (
+    'size': 50px,
+    'line-height': 59px,
+    'weight': 500
+  ),
+  'h2': (
+    'size': 36px,
+    'line-height': 54px,
+    'weight': 500
+  ),
+  'h3': (
+    'size': 32px,
+    'line-height': 38px,
+    'weight': 500
+  ),
+  'h4': (
+    'size': 24px,
+    'line-height': 36px,
+    'weight': 500
+  ),
+  'h5': (
+    'size': 24px,
+    'line-height': 36px,
+    'weight': 400
+  ),
+  'h6': (
+    'size': 20px,
+    'line-height': 23px,
+    'weight': 500
+  ),
+  'subtitle-1': (
+    'size': 24px,
+    'line-height': 28px,
+    'weight': 700
+  ),
+  'subtitle-2': (
+    'size': 20px,
+    'line-height': 23px,
+    'weight': 400
+  ),
+  'subtitle-3': (
+    'size': 16px,
+    'weight': 500,
+    'line-height': 24px,
+    'letter-spacing':  0.15px,
+    'font-family': Roboto,
+    'text-transform': false
+  ),
+  'body-1': (
+    'size': 16px,
+    'line-height': 24px,
+    'weight': 400
+  ),
+  'button': (
+    'size': 16px,
+    'line-height': 16px,
+    'weight': 500,
+  ),
+  'button-2': (
+    'size': 14px,
+    'weight': 500,
+    'line-height': 16px,
+    'letter-spacing': 1.25px,
+    'font-family': Roboto,
+    'text-transform': 'uppercase'
+  ),
+  'caption': (
+    'size': 12px,
+    'line-height': 16px,
+    'weight': 400,
+  ),
+  'overline': (
+    'size': 14px,
+    'line-height': 16px,
+    'weight': 500
+  )
+);
+
+$font-weights: (
+  'medium': 500
+);
+
+// GLOBAL
+
+$border-radius-root: 4px;
+
+// BUTTON
+
+$btn-sizes: (
+  'x-small': 28,
+  'small': 36,
+  'default': 56,
+  'large': 60,
+  'x-large': 64
+);
+
+$btn-font-sizes: (
+  'x-small': 12px,
+  'small': 14px,
+  'default': 16px,
+  'large': 16px,
+  'x-large': 18px
+);
+
+// APP-BAR
+
+$app-bar-elevation: 0;
+
+// TABLE
+
+$data-table-regular-header-font-size: map.get($headings, 'caption', 'size');
+$data-table-regular-row-font-size: map.get($headings, 'body-1', 'size');
+
+
+// LIST
+$list-item-title-font-size: map.get($headings, 'body-1', 'size');
+$list-item-subtitle-font-size: map.get($headings, 'body-2', 'size');
+
+// TOOLBAR
+$toolbar-elevation: 0;
+
+$utilities: (
+  "position": (
+    responsive: true,
+    property: position,
+    class: pos,
+    values: absolute relative fixed static
+  ),
+  "justify-items": (
+    responsive: true,
+    property: justify-items,
+    values: (
+      start: start,
+      end: end,
+      center: center,
+      space-between: space-between,
+      space-around: space-around,
+    )
+  ),
+  "flex-basis": (
+    responsive: true,
+    property: flex-basis,
+    class: flex,
+    values: (
+      basis-0: 0,
+      basis-auto: auto,
+    )
+  )
+);
+
+//Tabs
+$tab-font-size: 14px;
