@@ -1,6 +1,7 @@
 <template>
-  <ve-stack flow="column" gap="8">
-    <m-btn
+  <!-- <ve-stack flow="column" gap="8"> -->
+  <div>
+    <!-- <m-btn
       v-if="$isGuest"
       kind="secondary"
       small
@@ -8,9 +9,9 @@
       :to="{ name: 'signIn' }"
     >
       {{ $t('auth.signIn') }}
-    </m-btn>
+    </m-btn> -->
 
-    <template v-if="$isUser">
+    <template v-if="isUser">
       <v-menu
         bottom
         left
@@ -50,7 +51,7 @@
             <v-list-item-title>{{ $t('components.appBar.moderation') }}</v-list-item-title>
           </v-list-item>
 
-          <template v-if="$currentUser.isAdmin">
+          <!-- <template v-if="$currentUser.isAdmin">
             <v-divider />
             <v-list-item
               :to="{ name: 'admin' }"
@@ -60,7 +61,7 @@
               </v-list-item-icon>
               <v-list-item-title>{{ $t('components.appBar.admin') }}</v-list-item-title>
             </v-list-item>
-          </template>
+          </template> -->
 
           <v-divider />
 
@@ -74,7 +75,6 @@
       </v-menu>
 
       <m-btn
-        v-if="nftCollection"
         kind="primary"
         :disabled="loading"
         small
@@ -84,98 +84,63 @@
         {{ $t('components.appBar.submitAsset') }}
       </m-btn>
 
-      <m-btn
-        v-else
-        :disabled="loading"
-        kind="primary"
-        small
-        active-class="no-active"
-        @click="handleCreateCollectionClick"
-      >
-        {{ $t('components.appBar.createCollection') }}
-      </m-btn>
-
       <asset-create-dialog
         v-model="isCreateAssetDialogOpened"
       />
 
-      <collection-create-dialog
-        v-model="isCreateCollectionDialogOpened"
-      />
     </template>
-  </ve-stack>
+  </div>
+  <!-- </ve-stack> -->
 </template>
 
 <script>
-  import { VeStack } from '@casimir.one/vue-elements';
+  // import { VeStack } from '@casimir.one/vue-elements';
   import { AssetCreateDialog } from '@/modules/marketplace/components/AssetCreateDialog';
-  import { CollectionCreateDialog } from '../CollectionCreateDialog';
   import { MBtn } from '../MBtn';
 
   export default {
     name: 'AppBarUser',
 
     components: {
-      VeStack,
+      // VeStack,
       MBtn,
       AssetCreateDialog,
-      CollectionCreateDialog
     },
 
     data() {
       return {
+        isUser: true,
         loading: false,
         isCreateAssetDialogOpened: false,
-        isCreateCollectionDialogOpened: false
       };
     },
 
     computed: {
       userMenu() {
         return [
-          {
-            label: this.$t('components.appBar.account'),
-            icon: 'mdi-account',
-            to: { name: 'profile.details' }
-          },
-          {
-            label: this.$t('components.appBar.wallet'),
-            icon: 'mdi-wallet',
-            to: { name: 'wallet' }
-          }
+          // {
+          //   label: this.$t('components.appBar.account'),
+          //   icon: 'mdi-account',
+          //   to: { name: 'profile.details' }
+          // },
         ];
       },
       isModerator() {
-        const {
-          moderators = [],
-          nftItemMetadataDraftModerationRequired = false
-        } = this.$currentPortal?.profile?.settings?.moderation || {};
+        // const {
+        //   moderators = [],
+        //   nftItemMetadataDraftModerationRequired = false
+        // } = this.$currentPortal?.profile?.settings?.moderation || {};
 
-        return nftItemMetadataDraftModerationRequired
-          && moderators.includes(this.$currentUser?._id);
+        // return nftItemMetadataDraftModerationRequired
+        //   && moderators.includes(this.$currentUser?._id);
+        return true;
       },
-
-      nftCollection() {
-        return this.$store.getters.userNftCollection;
-      }
     },
 
     created() {
-      this.getNftCollection();
     },
 
     methods: {
-      async getNftCollection() {
-        this.loading = true;
-        try {
-          this.$currentUser.await(() => {
-            this.$store.dispatch('getCurrentUserNftCollection');
-            this.loading = false;
-          });
-        } catch (error) {
-          console.error(error);
-        }
-      },
 
       handleSignOut() {
         this.$store.dispatch('auth/signOut');

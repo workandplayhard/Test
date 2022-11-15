@@ -17,11 +17,11 @@
           <v-icon>mdi-link</v-icon>
         </m-btn>
       </div>
-      <layout-renderer
+      <!-- <layout-renderer
         :value="asset"
         :schema="cardSchema"
         :schema-data="cardSchemaData"
-      />
+      /> -->
     </v-card>
     <asset-details
       v-if="addAssetsDetailsModal && isAssetDetailsDialogOpen"
@@ -33,13 +33,15 @@
 </template>
 
 <script>
-  import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
-  import { dateMixin } from '@casimir.one/platform-components';
-  import { attributedDetailsFactory, LayoutRenderer } from '@casimir.one/layouts-module';
-  import { attributeMethodsFactory, expandAttributes } from '@casimir.one/attributes-module';
+  // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
+  // import { dateMixin } from '@casimir.one/platform-components';
+  import { dateMixin } from './../../../../casimir';
+  // import { attributedDetailsFactory, LayoutRenderer } from '@casimir.one/layouts-module';
+  // import { attributeMethodsFactory, expandAttributes } from '@casimir.one/attributes-module';
 
   import { MBtn } from '@/components/MBtn';
-  import AssetDetails from '@/modules/marketplace/components/AssetDetails/AssetDetails';
+  // import AssetDetails from '@/modules/marketplace/components/AssetDetails/AssetDetails';
+  import AssetDetails from './../AssetDetails';
 
   export default {
     name: 'AssetCard',
@@ -47,10 +49,10 @@
     components: {
       MBtn,
       AssetDetails,
-      LayoutRenderer
+      // LayoutRenderer
     },
 
-    mixins: [dateMixin, attributedDetailsFactory('asset')],
+    mixins: [dateMixin, /* attributedDetailsFactory('asset') */],
 
     props: {
       addAssetsDetailsModal: {
@@ -71,40 +73,40 @@
 
     computed: {
       cardSchema() {
-        return this.$layouts.getMappedData('nftItem.card')?.value;
+        // return this.$layouts.getMappedData('nftItem.card')?.value;
       },
 
       cardSchemaData() {
-        const scopeId = !this.isDraft ? this.asset._id : {
-          nftItemId: this.asset.nftItemId,
-          nftCollectionId: this.asset.nftCollectionId
-        };
-        return {
-          ...attributeMethodsFactory(
-            expandAttributes(this.asset),
-            {
-              scopeName: 'nftItem',
-              scopeId
-            }
-          ),
-          ...this.schemaData
-        };
+        // const scopeId = !this.isDraft ? this.asset._id : {
+        //   nftItemId: this.asset.nftItemId,
+        //   nftCollectionId: this.asset.nftCollectionId
+        // };
+        // return {
+        //   ...attributeMethodsFactory(
+        //     expandAttributes(this.asset),
+        //     {
+        //       scopeName: 'nftItem',
+        //       scopeId
+        //     }
+        //   ),
+        //   ...this.schemaData
+        // };
       },
 
       isCopyLinkShown() {
-        return this.isDraft && this.asset.status === NftItemMetadataDraftStatus.APPROVED;
+        return true; //this.isDraft && this.asset.status === NftItemMetadataDraftStatus.APPROVED;
       }
     },
 
     methods: {
       handleCopyLinkClick() {
-        const props = this.$router.resolve({
-          name: 'assetDetails',
-          params: { id: this.asset._id }
-        });
+        // const props = this.$router.resolve({
+        //   name: 'assetDetails',
+        //   params: { id: this.asset._id }
+        // });
 
-        navigator.clipboard.writeText(`${window.location.origin}/${props.href}`);
-        this.$notifier.showSuccess(this.$t('components.assetCard.linkCopied'));
+        // navigator.clipboard.writeText(`${window.location.origin}/${props.href}`);
+        // this.$notifier.showSuccess(this.$t('components.assetCard.linkCopied'));
       },
 
       onCardClick() {

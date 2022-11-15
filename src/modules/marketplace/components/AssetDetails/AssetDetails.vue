@@ -6,8 +6,10 @@
     :max-width="maxWidth"
     max-content-height="600"
   >
+    <div>ASSET DETAILS: {{asset.name}}</div>
     <template v-if="!completeCheckout" #aside>
-      <vex-image
+      <!-- <vex-image -->
+      <v-img
         height="500"
         :min-width="minImageWidth"
         content-class="responsive-image"
@@ -61,27 +63,19 @@
         </m-btn>
       </div>
     </div>
-    <complete-checkout
-      v-if="completeCheckout"
-      :asset="asset"
-      :creator-name="creator"
-      :asset-url="assetUrl"
-      @success="closeDialog"
-      @close-dialog="closeDialog"
-    />
   </m-dialog>
 </template>
 
 <script>
-  import { dateMixin } from '@casimir.one/platform-components';
-  import { userHelpersMixin } from '@casimir.one/users-module';
-  import { VexImage } from '@casimir.one/vuetify-extended';
-  import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
-  import { attributeMethodsFactory, expandAttributes } from '@casimir.one/attributes-module';
-  import { attributedDetailsFactory, LayoutRenderer } from '@casimir.one/layouts-module';
+  // import { dateMixin } from '@casimir.one/platform-components';
+  import { dateMixin } from './../../../../casimir';
+  // import { userHelpersMixin } from '@casimir.one/users-module';
+  // import { VexImage } from '@casimir.one/vuetify-extended';
+  // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
+  // import { attributeMethodsFactory, expandAttributes } from '@casimir.one/attributes-module';
+  // import { attributedDetailsFactory, LayoutRenderer } from '@casimir.one/layouts-module';
 
   import { MDialog, MBtn } from '@/components';
-  import CompleteCheckout from './CompleteCheckout';
 
   export default {
     name: 'AssetDetails',
@@ -89,12 +83,11 @@
     components: {
       MDialog,
       MBtn,
-      CompleteCheckout,
-      VexImage,
-      LayoutRenderer
+      // VexImage,
+      // LayoutRenderer
     },
 
-    mixins: [dateMixin, userHelpersMixin, attributedDetailsFactory('nftItem')],
+    mixins: [dateMixin, /* userHelpersMixin, attributedDetailsFactory('nftItem') */],
 
     props: {
       value: {
@@ -124,63 +117,68 @@
     },
 
     computed: {
-      detailsSchema() {
-        return this.$layouts.getMappedData('nftItem.details').value;
-      },
+      // detailsSchema() {
+      //   return this.$layouts.getMappedData('nftItem.details').value;
+      // },
 
-      detailsSchemaData() {
-        const scopeId = !this.isDraft ? this.asset._id : {
-          nftItemId: this.asset.nftItemId,
-          nftCollectionId: this.asset.nftCollectionId
-        };
-        return {
-          ...attributeMethodsFactory(
-            expandAttributes(this.asset),
-            {
-              scopeName: 'nftItem',
-              scopeId
-            }
-          ),
-          ...this.schemaData
-        };
-      },
+      // detailsSchemaData() {
+      //   const scopeId = !this.isDraft ? this.asset._id : {
+      //     nftItemId: this.asset.nftItemId,
+      //     nftCollectionId: this.asset.nftCollectionId
+      //   };
+      //   return {
+      //     ...attributeMethodsFactory(
+      //       expandAttributes(this.asset),
+      //       {
+      //         scopeName: 'nftItem',
+      //         scopeId
+      //       }
+      //     ),
+      //     ...this.schemaData
+      //   };
+      // },
 
       asset() {
-        return (this.isDraft)
-          ? this.$store.getters['nftItemDrafts/one'](this.id)
-          : this.$store.getters['nftItems/one'](this.id);
+        // return (this.isDraft)
+        //   ? this.$store.getters['nftItemDrafts/one'](this.id)
+        //   : this.$store.getters['nftItems/one'](this.id);
+
+        return {"name": "Asset number one"};
       },
 
       assetUrl() {
-        const image = this.$attributes.getMappedData(
-          'nftItem.image',
-          this.asset.attributes
-        );
+        return "http://something";
+        // const image = this.$attributes.getMappedData(
+        //   'nftItem.image',
+        //   this.asset.attributes
+        // );
 
-        if (!image) return null;
+        // if (!image) return null;
 
-        const scopeId = JSON.stringify({
-          nftCollectionId: this.asset.nftCollectionId,
-          nftItemId: this.asset.nftItemId
-        });
+        // const scopeId = JSON.stringify({
+        //   nftCollectionId: this.asset.nftCollectionId,
+        //   nftItemId: this.asset.nftItemId
+        // });
 
-        return this.$attributes.getFileSrc({
-          scope: 'nftItem',
-          scopeId,
-          attributeId: image.attributeId,
-          filename: image.value
-        });
+        // return this.$attributes.getFileSrc({
+        //   scope: 'nftItem',
+        //   scopeId,
+        //   attributeId: image.attributeId,
+        //   filename: image.value
+        // });
       },
 
       creator() {
-        const userData = this.$store.getters['users/one'](this.asset.authors[0]);
-        if (!userData?.attributes) return null;
-        return this.$attributes
-          .getMappedData('user.name', userData.attributes)?.value;
+        // const userData = this.$store.getters['users/one'](this.asset.authors[0]);
+        // if (!userData?.attributes) return null;
+        // return this.$attributes
+        //   .getMappedData('user.name', userData.attributes)?.value;
+        return "creator";
       },
 
       isCurrentUserAuthor() {
-        return this.asset.authors.includes(this.$currentUser._id);
+        // return this.asset.authors.includes(this.$currentUser._id);
+        return false;
       },
 
       maxWidth() {
@@ -204,13 +202,11 @@
       },
 
       isApprovedAsset() {
-        return this.isDraft && this.asset.status === NftItemMetadataDraftStatus.APPROVED;
+        return false; //this.isDraft && this.asset.status === NftItemMetadataDraftStatus.APPROVED;
       },
 
       isBuyShown() {
-        return this.$isUser
-          && this.isApprovedAsset
-          && !this.isCurrentUserAuthor;
+        return false;
       }
     },
 
@@ -228,29 +224,29 @@
       },
 
       async getData() {
-        try {
-          if (this.isDraft) {
-            await this.$store.dispatch('nftItemDrafts/getOne', this.id);
-          } else {
-            await this.$store.dispatch('nftItems/getOne', this.id);
-          }
-          if (this.asset) {
-            await this.$store.dispatch('users/getOne', this.asset.authors[0]);
-            await this.$store.dispatch('nftCollections/getOne', this.asset.nftCollectionId);
-          }
-        } catch (error) {
-          console.error(error);
-        }
+        // try {
+        //   if (this.isDraft) {
+        //     await this.$store.dispatch('nftItemDrafts/getOne', this.id);
+        //   } else {
+        //     await this.$store.dispatch('nftItems/getOne', this.id);
+        //   }
+        //   if (this.asset) {
+        //     await this.$store.dispatch('users/getOne', this.asset.authors[0]);
+        //     await this.$store.dispatch('nftCollections/getOne', this.asset.nftCollectionId);
+        //   }
+        // } catch (error) {
+        //   console.error(error);
+        // }
       },
 
       handleCopyLinkClick() {
-        const props = this.$router.resolve({
-          name: 'assetDetails',
-          params: { id: this.asset._id }
-        });
+        // const props = this.$router.resolve({
+        //   name: 'assetDetails',
+        //   params: { id: this.asset._id }
+        // });
 
-        navigator.clipboard.writeText(`${window.location.origin}/${props.href}`);
-        this.$notifier.showSuccess(this.$t('components.assetCard.linkCopied'));
+        // navigator.clipboard.writeText(`${window.location.origin}/${props.href}`);
+        // this.$notifier.showSuccess(this.$t('components.assetCard.linkCopied'));
       },
 
       handleBuyClick() {

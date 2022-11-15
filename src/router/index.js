@@ -32,11 +32,11 @@ const router = new VueRouter({
 router.beforeResolve((to, from, next) => {
   const { viewSetup: { sideBar } = {} } = to.meta;
 
-  if (sideBar) {
-    store.dispatch('admin/changeSideBarState', sideBar);
-  } else {
-    store.dispatch('admin/resetSideBarState');
-  }
+  // if (sideBar) {
+  //   store.dispatch('admin/changeSideBarState', sideBar);
+  // } else {
+  //   store.dispatch('admin/resetSideBarState');
+  // }
 
   next();
 });

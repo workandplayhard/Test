@@ -64,8 +64,8 @@ module.exports = {
   },
 
   transpileDependencies: [
-    '@casimir.one/*',
-    '@deip/*',
+    // '@casimir.one/*',
+    // '@deip/*',
     'vuetify',
     '@polkadot/*'
   ],

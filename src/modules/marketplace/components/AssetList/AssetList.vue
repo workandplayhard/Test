@@ -1,10 +1,14 @@
 <template>
-  <vex-section>
-    <ve-stack>
-      <vex-section-title
+  <!-- <vex-section> -->
+    <div>
+      ASSETS LISTING PAGE
+    <!-- <ve-stack> -->
+      <div>
+      <!-- <vex-section-title
         :title="$t('marketplace.assetList.allNfts')"
-      >
-        <template #append>
+      > -->
+      <div>
+        <!-- <template #append>
           <v-select
             v-model="sort"
             :label="$t('marketplace.assetList.sorting')"
@@ -24,16 +28,19 @@
               </div>
             </template>
           </v-select>
-        </template>
-      </vex-section-title>
+        </template> -->
+      </div>
+      <!-- </vex-section-title> -->
 
-      <nft-items-infinite-scroll
+      <!-- <nft-items-infinite-scroll
         ref="scroll"
         :sort="sort"
         :filter="filter"
         is-draft
-      >
-        <template #default="{ list }">
+      > -->
+      <div>
+        LIST HERE
+        <!-- <template #default="{ list }">
           <ve-auto-grid
             cols="1"
             cols-sm="2"
@@ -48,35 +55,38 @@
               <asset-card :asset="asset" is-draft />
             </router-link>
           </ve-auto-grid>
-        </template>
-      </nft-items-infinite-scroll>
-    </ve-stack>
-  </vex-section>
+        </template> -->
+      <!-- </nft-items-infinite-scroll> -->
+      </div>
+    <!-- </ve-stack> -->
+    </div>
+  <!-- </vex-section> -->
+  </div>
 </template>
 
 <script>
-  import { VexSection, VexSectionTitle } from '@casimir.one/vuetify-extended';
-  import { VeStack, VeAutoGrid } from '@casimir.one/vue-elements';
-  import { AssetCard } from '@/components';
-  import { NftItemsInfiniteScroll } from '@casimir.one/nft-items-module';
-  import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
+  // import { VexSection, VexSectionTitle } from '@casimir.one/vuetify-extended';
+  // import { VeStack, VeAutoGrid } from '@casimir.one/vue-elements';
+  import { AssetCard } from './../AssetCard';
+  // import { NftItemsInfiniteScroll } from '@casimir.one/nft-items-module';
+  // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
 
   export default {
     name: 'AssetList',
 
     components: {
       AssetCard,
-      VexSection,
-      VexSectionTitle,
-      VeStack,
-      VeAutoGrid,
-      NftItemsInfiniteScroll
+      // VexSection,
+      // VexSectionTitle,
+      // VeStack,
+      // VeAutoGrid,
+      // NftItemsInfiniteScroll
     },
 
     data() {
       return {
         loading: false,
-        NftItemMetadataDraftStatus,
+        // NftItemMetadataDraftStatus,
         sort: {},
         sortingOptions: [
           {
@@ -96,18 +106,18 @@
           }
         ],
         filter: {
-          status: NftItemMetadataDraftStatus.APPROVED,
+          // status: NftItemMetadataDraftStatus.APPROVED,
           lazySellProposalId: { $exists: true }
         }
       };
     },
 
     mounted() {
-      this.$eventBus.$on('asset-purchased', this.$refs.scroll.resetInfiniteScroll);
+      // this.$eventBus.$on('asset-purchased', this.$refs.scroll.resetInfiniteScroll);
     },
 
     beforeDestroy() {
-      this.$eventBus.$off('asset-purchased', this.$refs.scroll.resetInfiniteScroll);
+      // this.$eventBus.$off('asset-purchased', this.$refs.scroll.resetInfiniteScroll);
     }
   };
 </script>
