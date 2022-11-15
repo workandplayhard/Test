@@ -5,6 +5,7 @@
       class="nft-card"
       @click="onCardClick"
     >
+      ASSET CARD
       <div v-if="isCopyLinkShown" class="button-container d-flex justify-end mt-4 mr-4">
         <m-btn
           icon

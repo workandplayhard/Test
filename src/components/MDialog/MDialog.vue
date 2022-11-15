@@ -18,10 +18,8 @@
               <slot name="title" />
             </span>
 
-            <!-- <ve-stack flow="column" gap="8" class="ml-auto"> -->
-            <div>
+            <ve-stack flow="column" gap="8" class="ml-auto">
               <slot name="titleButtons" />
-
               <m-btn
                 small
                 icon
@@ -30,8 +28,7 @@
               >
                 <v-icon>mdi-window-close</v-icon>
               </m-btn>
-            </div>
-            <!-- </ve-stack> -->
+            </ve-stack>
           </v-card-title>
 
           <v-card-text :class="cardClass" :style="cardStyle">
@@ -45,8 +42,9 @@
 
 <script>
   import { VDialog } from 'vuetify/lib/components';
-
+  import { VeStack } from './../vue-elements/lib/components/VeStack';
   // import { VeStack } from '@casimir.one/vue-elements';
+
   // import {
   //   contextMixin,
   //   getBindableProps
@@ -59,7 +57,7 @@
     name: 'MDialog',
 
     components: {
-      // VeStack,
+      VeStack,
       MBtn
     },
 

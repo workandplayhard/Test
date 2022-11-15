@@ -5,7 +5,7 @@
     max-width="646"
     max-content-height="600"
   >
-  <div>ASSET DIALOG</div>
+    <div>CREATE ASSET DIALOG</div>
     <template #title>
       {{ $t('marketplace.createAsset.formTitle') }}
     </template>

@@ -7,9 +7,8 @@
       :disabled="loading"
       @submit="submit"
     >
-      <!-- <ve-stack> -->
-      <div>
-        ASSET FORM
+      <ve-stack>
+        CREATE ASSET FORM
         <!-- <layout-renderer
           v-if="formSchema"
           :key="forceUpdateKey"
@@ -43,8 +42,7 @@
             {{ $t('marketplace.createAsset.createNft') }}
           </m-btn>
         </div>
-      </div>
-      <!-- </ve-stack> -->
+      </ve-stack>
     </v-form>
   <!-- </validation-observer> -->
 </template>
@@ -54,13 +52,14 @@
   // import { VeStack } from '@casimir.one/vue-elements';
   // import { NftItemMetadataDraftStatus, AttributeScope } from '@casimir.one/platform-core';
   import { MBtn } from '@/components/MBtn';
+  import { VeStack } from './../../../../components/vue-elements/lib/components/VeStack';
 
   export default {
     name: 'AssetCreateForm',
 
     components: {
       // LayoutRenderer,
-      // VeStack,
+      VeStack,
       MBtn
     },
 
