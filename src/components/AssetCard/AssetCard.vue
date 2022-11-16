@@ -41,8 +41,7 @@
   // import { attributeMethodsFactory, expandAttributes } from '@casimir.one/attributes-module';
 
   import { MBtn } from '@/components/MBtn';
-  // import AssetDetails from '@/modules/marketplace/components/AssetDetails/AssetDetails';
-  import AssetDetails from './../AssetDetails';
+  import AssetDetails from '@/modules/marketplace/components/AssetDetails/AssetDetails';
 
   export default {
     name: 'AssetCard',

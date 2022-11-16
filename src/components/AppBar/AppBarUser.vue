@@ -1,14 +1,14 @@
 <template>
   <ve-stack flow="column" gap="8">
-    <!-- <m-btn
-      v-if="$isGuest"
+    <m-btn
+      v-if="isGuest"
       kind="secondary"
       small
       active-class="no-active"
       :to="{ name: 'signIn' }"
     >
       {{ $t('auth.signIn') }}
-    </m-btn> -->
+    </m-btn>
 
     <template v-if="isUser">
       <v-menu
@@ -50,17 +50,15 @@
             <v-list-item-title>{{ $t('components.appBar.moderation') }}</v-list-item-title>
           </v-list-item>
 
-          <!-- <template v-if="$currentUser.isAdmin">
+          <template v-if="isAdmin">
             <v-divider />
-            <v-list-item
-              :to="{ name: 'admin' }"
-            >
+            <v-list-item :to="{ name: 'admin' }">
               <v-list-item-icon>
                 <v-icon>mdi-account-tie</v-icon>
               </v-list-item-icon>
               <v-list-item-title>{{ $t('components.appBar.admin') }}</v-list-item-title>
             </v-list-item>
-          </template> -->
+          </template>
 
           <v-divider />
 
@@ -107,7 +105,6 @@
 
     data() {
       return {
-        isUser: true,
         loading: false,
         isCreateAssetDialogOpened: false,
       };
@@ -116,23 +113,20 @@
     computed: {
       userMenu() {
         return [
-          // {
-          //   label: this.$t('components.appBar.account'),
-          //   icon: 'mdi-account',
-          //   to: { name: 'profile.details' }
-          // },
         ];
       },
-      isModerator() {
-        // const {
-        //   moderators = [],
-        //   nftItemMetadataDraftModerationRequired = false
-        // } = this.$currentPortal?.profile?.settings?.moderation || {};
-
-        // return nftItemMetadataDraftModerationRequired
-        //   && moderators.includes(this.$currentUser?._id);
+      isGuest() {
+        return false;
+      },
+      isUser() {
         return true;
       },
+      isModerator() {
+        return true;
+      },
+      isAdmin() {
+        return true;
+      }
     },
 
     created() {
@@ -148,9 +142,6 @@
         this.isCreateAssetDialogOpened = true;
       },
 
-      handleCreateCollectionClick() {
-        this.isCreateCollectionDialogOpened = true;
-      }
     }
   };
 </script>

@@ -62,7 +62,7 @@
 <script>
   import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
   import { VeStack, VeAutoGrid } from '@/components/vue-elements';
-  import { AssetCard } from './../AssetCard';
+  import { AssetCard } from '@/components';
   // import { NftItemsInfiniteScroll } from '@casimir.one/nft-items-module';
   // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
 
