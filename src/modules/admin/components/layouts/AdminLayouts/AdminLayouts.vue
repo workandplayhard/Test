@@ -1,21 +1,21 @@
 <template>
-  <!-- <layouts-management
+  <layouts-management
     @click-remove="onClickRemove"
     @click-edit="onClickEdit"
     @click-create="onClickCreate"
     @click-settings="onClickSettings"
-  /> -->
-  <div>ADMIN LAYOUTS</div>
+  />
+  <!-- <div>ADMIN LAYOUTS</div> -->
 </template>
 
 <script>
-  // import { LayoutsManagement } from '@casimir.one/layouts-module';
+  import { LayoutsManagement } from '@/casimir-framework/modules/layouts';
 
   export default {
     name: 'AdminLayouts',
 
     components: {
-      // LayoutsManagement
+      LayoutsManagement
     },
 
     methods: {

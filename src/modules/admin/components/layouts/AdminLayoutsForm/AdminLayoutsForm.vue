@@ -1,18 +1,16 @@
 <template>
-  <!-- <layout-builder
+  <layout-builder
     :layout="layoutData"
     :mode="mode"
     @success="onSuccess"
     @error="onError"
-  /> -->
-  <div>ADMIN LAYOUTS FORM</div>
+  />
+  <!-- <div>ADMIN LAYOUTS FORM</div> -->
 
 </template>
 
 <script>
-  // import { LayoutBuilder } from '@casimir.one/layouts-module';
-  // import { formMixin } from '@casimir.one/platform-components';
-  // import { filterObjectKeys } from '@casimir.one/toolbox';
+  import { LayoutBuilder } from '@/casimir-framework/modules/layouts';
   import { formMixin, filterObjectKeys } from '@/casimir-framework/all';
 
 
@@ -20,7 +18,7 @@
     name: 'AdminLayoutsForm',
 
     components: {
-      // LayoutBuilder
+      LayoutBuilder
     },
 
     props: {

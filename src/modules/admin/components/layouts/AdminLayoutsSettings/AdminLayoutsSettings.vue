@@ -15,12 +15,12 @@
           :title="$t('admin.layouts.settings')"
         />
         {{ $layouts.getMappedData('user.details') }}
-        <!-- <layouts-settings
+        <layouts-settings
           v-if="Object.keys(settings).length"
           :value="settings"
           @success="onSuccess"
           @error="onError"
-        /> -->
+        />
       </ve-stack>
     </vex-section>
   </v-sheet>
@@ -30,13 +30,13 @@
   import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
   import { VeStack } from '@/casimir-framework/vue-elements';
 
-  // import { LayoutsSettings } from '@casimir.one/layouts-module';
+  import { LayoutsSettings } from '@/casimir-framework/modules/layouts';
 
   export default {
     name: 'AdminLayoutsSettings',
 
     components: {
-      // LayoutsSettings,
+      LayoutsSettings,
 
       VeStack,
       VexSection,
