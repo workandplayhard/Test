@@ -17,7 +17,7 @@ import { LayoutsModule } from '@/casimir-framework/modules/layouts';
 // import { UsersModule } from '@casimir.one/users-module';
 // import { TeamsModule } from '@casimir.one/teams-module';
 // import { NftCollectionsModule } from '@casimir.one/nft-collections-module';
-// import { NftItemsModule } from '@casimir.one/nft-items-module';
+import { NftItemsModule } from '@/casimir-framework/modules/nft-items';
 // import { AssetsModule } from '@casimir.one/assets-module';
 
 // import { NftMarketplaceAuthModule } from '@/modules/auth';
@@ -65,24 +65,23 @@ const nftMarketplaceApp = new CreateApp(Vue, {
 //   ]
 // };
 
-// const nftItemsModuleOptions = {
-//   attributesMappedKeys: [
-//     { key: 'price', label: 'Nft item price', allowedTypes: ['asset'] },
-//     {
-//       key: 'image',
-//       label: 'Image',
-//       allowedTypes: ['image']
-//     },
-//     { key: 'name', label: 'Name', allowedTypes: ['text'] }
-//   ]
-// };
+const nftItemsModuleOptions = {
+  attributesMappedKeys: [
+    { key: 'price', label: 'Nft item price', allowedTypes: ['asset'] },
+    {
+      key: 'image',
+      label: 'Image',
+      allowedTypes: ['image']
+    },
+    { key: 'name', label: 'Name', allowedTypes: ['text'] }
+  ]
+};
 
 const layoutsModuleOptions = {
   blocks: layoutBuilderElements.blocks,
   components: {
     ...layoutBuilderElements.components
   }
-
 };
 
 nftMarketplaceApp
@@ -99,7 +98,7 @@ nftMarketplaceApp
   // .addModule(UsersModule, usersModuleOptions)
   // .addModule(TeamsModule)
   // .addModule(NftCollectionsModule, nftCollectionsModuleOptions)
-  // .addModule(NftItemsModule, nftItemsModuleOptions)
+  .addModule(NftItemsModule, nftItemsModuleOptions)
   // .addModule(AssetsModule)
   // .addModule(NftMarketplaceWalletModule)
   // .addModule(NftMarketplaceAuthModule)
