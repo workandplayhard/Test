@@ -106,8 +106,7 @@ export function addValueToEnum(enumObj, key, value) {
 */
 export function createEnum(items) {
   const enumObj = {};
-
-  const isString = (val) => { typeof val === 'string' };
+  const isString = (val) => { return typeof val === 'string' };
 
   if (Array.isArray(items)) {
     items.forEach(it => isString(it) ? addValueToEnum(enumObj, it) : addValueToEnum(enumObj, it.key, it.value));

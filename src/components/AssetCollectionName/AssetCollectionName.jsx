@@ -12,14 +12,16 @@ export default defineComponent({
 
   computed: {
     nftCollectionName() {
-      const nftCollectionData = this.$store.getters['nftCollections/one'](
-        this.schemaData.data.nftCollectionId
-      );
+      // const nftCollectionData = this.$store.getters['nftCollections/one'](
+      //   this.schemaData.data.nftCollectionId
+      // );
 
-      if (!nftCollectionData?.attributes) return null;
+      // if (!nftCollectionData?.attributes) return null;
 
-      return this.$attributes
-        .getMappedData('nftCollection.name', nftCollectionData.attributes)?.value;
+      // return this.$attributes
+      //   .getMappedData('nftCollection.name', nftCollectionData.attributes)?.value;
+
+      return "NFT collection form name";
     }
   },
 

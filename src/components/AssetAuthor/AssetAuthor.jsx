@@ -12,17 +12,18 @@ export default defineComponent({
 
   computed: {
     authorName() {
-      const { authors } = this.schemaData.data;
+      // const { authors } = this.schemaData.data;
 
-      if (!authors || !authors.length) return null;
+      // if (!authors || !authors.length) return null;
 
-      const authorId = authors[0];
-      const author = this.$store.getters['users/one'](authorId);
+      // const authorId = authors[0];
+      // const author = this.$store.getters['users/one'](authorId);
 
-      if (!author?.attributes) return null;
+      // if (!author?.attributes) return null;
 
-      return this.$attributes
-        .getMappedData('user.name', author.attributes)?.value;
+      // return this.$attributes
+      //   .getMappedData('user.name', author.attributes)?.value;
+      return "Asset author name";
     }
   },
 

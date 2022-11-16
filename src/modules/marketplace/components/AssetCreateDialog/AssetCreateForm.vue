@@ -106,8 +106,8 @@
 
       async sellLazy() {
         const { _id, issuer, nextNftItemId } = this.nftCollection;
-        const asset = this.$attributes
-          .getMappedData('nftItem.price', this.lazyFormData.attributes)?.value;
+        // const asset = this.$attributes
+        //   .getMappedData('nftItem.price', this.lazyFormData.attributes)?.value;
 
         const payload = {
           initiator: this.$currentUser,

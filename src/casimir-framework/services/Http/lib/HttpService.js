@@ -10,7 +10,7 @@ import { handleHttpError } from './HttpError';
  * @typedef {import("axios").AxiosInstance} AxiosInstance
  */
 
-const DEIP_SERVER_URL = "https://demo.webserver.http.casimir.one";
+const DEIP_SERVER_URL = "http://127.0.0.1:8079";
 
 export class HttpService {
   /**

@@ -2,7 +2,7 @@ import qs from 'qs';
 import { hasValue, wrapInArray, isObject } from '@/casimir-framework/all';
 // import { proxydi } from '@casimir.one/proxydi';
 
-const DEIP_SERVER_URL = "https://demo.webserver.http.casimir.one"; 
+const DEIP_SERVER_URL = "http://127.0.0.1:8079"; 
 
 /**
  * Convert array attributes from model to object
