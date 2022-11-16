@@ -2,7 +2,7 @@ import './VeStack.scss';
 
 // import { defineComponent } from '@casimir.one/platform-util';
 // import { convertToUnit } from '@casimir.one/toolbox';
-import { convertToUnit, defineComponent } from './../../../../../casimir';
+import { convertToUnit, defineComponent } from '@/casimir';
 import { genBreakpointCssVarsStyles, genBreakpointProps } from '../../util/breakpoint';
 
 /**

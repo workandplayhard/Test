@@ -1,5 +1,5 @@
 // import { defineComponent } from '@casimir.one/platform-util';
-import { defineComponent } from './../../../../../casimir';
+import { defineComponent } from '@/casimir';
 
 /**
  * Display raw data toggled by a button

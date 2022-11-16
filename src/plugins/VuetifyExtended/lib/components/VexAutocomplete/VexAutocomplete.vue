@@ -4,7 +4,7 @@
     VAutocomplete, VChip, VBtn, VIcon
   } from 'vuetify/lib/components';
   /* eslint-enable */
-  import { defineComponent, convertToUnit } from './../../../../../casimir';
+  import { defineComponent, convertToUnit } from '@/casimir';
 
   /**
    * Selector with autocomplete

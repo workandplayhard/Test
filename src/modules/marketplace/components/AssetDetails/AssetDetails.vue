@@ -67,7 +67,7 @@
 
 <script>
   // import { dateMixin } from '@casimir.one/platform-components';
-  import { dateMixin } from './../../../../casimir';
+  import { dateMixin } from '@/casimir';
   // import { userHelpersMixin } from '@casimir.one/users-module';
   import { VexImage } from '@/plugins/VuetifyExtended';
   // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';

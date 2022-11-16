@@ -66,7 +66,7 @@
 
 <script>
   /* eslint-disable import/extensions, import/no-unresolved */
-  import { defineComponent } from './../../../../../casimir';
+  import { defineComponent } from '@/casimir';
   import Toggleable from 'vuetify/lib/mixins/toggleable';
   import {
     VDialog,

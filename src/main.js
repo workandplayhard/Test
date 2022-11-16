@@ -5,7 +5,7 @@ import '@mdi/font/css/materialdesignicons.css';
 import Vue from 'vue';
 
 // import { CreateApp } from '@casimir.one/platform-util';
-import { CreateApp } from './casimir';
+import { CreateApp } from '@/casimir';
 // import { ValidationPlugin } from '@casimir.one/validation-plugin';
 // import { VuetifyExtended } from '@casimir.one/vuetify-extended';
 import { VuetifyExtended } from '@/plugins/VuetifyExtended';

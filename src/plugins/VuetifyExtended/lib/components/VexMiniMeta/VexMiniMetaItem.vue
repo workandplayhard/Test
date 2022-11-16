@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import { defineComponent } from './../../../../../casimir';
+  import { defineComponent } from '@/casimir';
   /* eslint-disable */
   import { VIcon } from 'vuetify/lib/components';
   /* eslint-enable */

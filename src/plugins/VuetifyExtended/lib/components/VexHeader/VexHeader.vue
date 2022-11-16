@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import { defineComponent, isDarkColor, getDominantColor } from './../../../../../casimir';
+  import { defineComponent, isDarkColor, getDominantColor } from '@/casimir';
   import { VexSection } from '../VexSection';
 
   /** Page header with background */

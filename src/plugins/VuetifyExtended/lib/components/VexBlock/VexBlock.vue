@@ -30,8 +30,8 @@
 </template>
 
 <script>
-  import { defineComponent } from './../../../../../casimir';
-  import { VeStack } from './../../../../../components/vue-elements';
+  import { defineComponent } from '@/casimir';
+  import { VeStack } from '@/components/vue-elements';
   import { contextMixin } from '../../composables';
 
   /**

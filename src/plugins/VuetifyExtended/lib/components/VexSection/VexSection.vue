@@ -1,5 +1,5 @@
   <script>
-  import { defineComponent } from './../../../../../casimir';
+  import { defineComponent } from '@/casimir';
   /* eslint-disable */
   import { VSheet } from 'vuetify/lib/components/VSheet';
   /* eslint-enable */

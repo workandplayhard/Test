@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import { defineComponent } from './../../../../../casimir';
+  import { defineComponent } from '@/casimir';
 
   /**
    * Component for display a vertical timeline.

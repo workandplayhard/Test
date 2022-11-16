@@ -44,7 +44,7 @@
   import { VDialog } from 'vuetify/lib/components';
   import { VeStack } from '@/components/vue-elements';
   import { contextMixin, getBindableProps } from '@/plugins/VuetifyExtended';
-  import { convertToUnit } from './../../casimir';
+  import { convertToUnit } from '@/casimir';
 
   import { MBtn } from '../MBtn';
 

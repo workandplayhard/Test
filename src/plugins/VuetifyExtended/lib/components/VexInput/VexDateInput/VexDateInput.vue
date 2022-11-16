@@ -29,7 +29,7 @@
 </template>
 
 <script>
-  import { defineComponent, isArray } from './../../../../../../casimir';
+  import { defineComponent, isArray } from '@/casimir';
   import { isFuture, isToday, parseISO } from 'date-fns';
 
   /* eslint-disable */

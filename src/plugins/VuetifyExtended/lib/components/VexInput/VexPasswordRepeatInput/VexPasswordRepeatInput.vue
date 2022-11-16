@@ -38,7 +38,7 @@
   </ve-stack>
 </template>
 <script>
-  import { VeStack } from './../../../../../../components/vue-elements';
+  import { VeStack } from '@/components/vue-elements';
   import { VexPasswordInput } from '../VexPasswordInput';
 
   /** Control for creating password with repeat */

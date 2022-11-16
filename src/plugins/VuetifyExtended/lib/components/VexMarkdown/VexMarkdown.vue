@@ -1,5 +1,5 @@
 <script>
-  import { defineComponent } from './../../../../../casimir';
+  import { defineComponent } from '@/casimir';
   import marked from 'marked';
   import DOMPurify from 'dompurify';
 

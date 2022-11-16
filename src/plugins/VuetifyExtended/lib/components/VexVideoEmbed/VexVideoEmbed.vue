@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import { defineComponent } from './../../../../../casimir';
+  import { defineComponent } from '@/casimir';
   /* eslint-disable */
   import Measurable from 'vuetify/lib/mixins/measurable';
   /* eslint-enable */
