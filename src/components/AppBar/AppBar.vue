@@ -12,7 +12,7 @@
         class="text-decoration-none text--primary d-block"
       >
         <!-- XXX: Put your logo here -->
-        NFT marketplace
+        Moti
       </router-link>
     </v-app-bar-title>
 

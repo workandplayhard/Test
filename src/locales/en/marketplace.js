@@ -13,6 +13,9 @@ export default {
       noNftCollection: 'User can\'t submit assets without the collection'
     }
   },
+  conceptPage: {
+    pageTitle: 'Concept Page',
+  },
   assetList: {
     allNfts: 'All NFTs',
     sorting: 'Sorting',

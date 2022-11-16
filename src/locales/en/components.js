@@ -5,7 +5,7 @@ export default {
     profile: 'Profile',
     account: 'Account',
     wallet: 'Account balance',
-    admin: 'Admin',
+    admin: 'App Settings',
     moderation: 'Moderation'
   },
   navigation: {

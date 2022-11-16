@@ -8,7 +8,6 @@
       @submit.prevent="handleSubmit(submit)"
     >
       <ve-stack>
-        CREATE ASSET FORM
         <layout-renderer
           v-if="formSchema"
           :key="forceUpdateKey"

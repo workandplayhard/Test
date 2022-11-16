@@ -6,6 +6,18 @@
         :title="$t('marketplace.assetList.allNfts')"
       >
         <template #append>
+          <m-btn
+            small
+            kind="primary"
+            outlined
+            class="mr-4"
+            :to="{ name: 'assetCreate' }"
+          >
+            <v-icon left>
+              mdi-tune-vertical
+            </v-icon>
+            Create Asset
+          </m-btn>
           <v-select
             v-model="sort"
             :label="$t('marketplace.assetList.sorting')"
@@ -62,7 +74,7 @@
 <script>
   import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
   import { VeStack, VeAutoGrid } from '@/casimir-framework/vue-elements';
-  import { AssetCard } from '@/components';
+  import { AssetCard, MBtn } from '@/components';
   // import { NftItemsInfiniteScroll } from '@casimir.one/nft-items-module';
   // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
 
@@ -70,6 +82,7 @@
     name: 'AssetList',
 
     components: {
+      MBtn,
       AssetCard,
       VexSection,
       VexSectionTitle,

@@ -1,5 +1,8 @@
 import { AssetList } from '../components/AssetList';
+import { ConceptPage } from '../components/ConceptPage';
 import { AssetDetails } from '../components/AssetDetails';
+import { AssetCreatePage } from '../components/AssetCreatePage';
+
 
 export const marketplaceRouter = [
   {
@@ -8,9 +11,21 @@ export const marketplaceRouter = [
     meta: { auth: false },
     children: [
       {
-        name: 'marketplace',
+        name: 'concept',
         path: '',
+        component: ConceptPage,
+        meta: { auth: false }
+      },
+      {
+        name: 'marketplace',
+        path: 'asset/list',
         component: AssetList,
+        meta: { auth: false }
+      },
+      {
+        name: 'assetCreate',
+        path: 'asset/create',
+        component: AssetCreatePage,
         meta: { auth: false }
       },
       {
@@ -25,7 +40,7 @@ export const marketplaceRouter = [
           dialog: (route) => ({
             value: true,
             id: route.params.id,
-            mainRoute: { name: 'marketplace' },
+            mainRoute: { name: 'concept' },
             isDraft: true
           })
         }

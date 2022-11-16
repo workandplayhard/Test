@@ -19,11 +19,11 @@
       >
         <template #activator="{ on }">
           <m-btn
-            kind="tetriary"
+            kind="secondary"
             small
             v-on="on"
           >
-            {{ $t('components.appBar.profile') }}
+            Admin Panel
           </m-btn>
         </template>
 
@@ -60,30 +60,16 @@
             </v-list-item>
           </template>
 
-          <v-divider />
+          <!-- <v-divider />
 
           <v-list-item @click="handleSignOut">
             <v-list-item-icon>
               <v-icon>mdi-logout-variant</v-icon>
             </v-list-item-icon>
             <v-list-item-title>{{ $t('auth.signOut') }}</v-list-item-title>
-          </v-list-item>
+          </v-list-item> -->
         </v-list>
       </v-menu>
-
-      <m-btn
-        kind="primary"
-        :disabled="loading"
-        small
-        active-class="no-active"
-        @click="handleCreateAssetClick"
-      >
-        {{ $t('components.appBar.submitAsset') }}
-      </m-btn>
-
-      <asset-create-dialog
-        v-model="isCreateAssetDialogOpened"
-      />
 
     </template>
   </ve-stack>
@@ -91,7 +77,6 @@
 
 <script>
   import { VeStack } from '@/casimir-framework/vue-elements';
-  import { AssetCreateDialog } from '@/modules/marketplace/components/AssetCreateDialog';
   import { MBtn } from '../MBtn';
 
   export default {
@@ -99,8 +84,7 @@
 
     components: {
       VeStack,
-      MBtn,
-      AssetCreateDialog,
+      MBtn
     },
 
     data() {
