@@ -45,8 +45,7 @@
 
     computed: {
       settings() {
-        return {}
-        // return this.$store.getters['layouts/settings'];
+        return this.$store.getters['layouts/settings'];
       }
     },
 
