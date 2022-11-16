@@ -1,6 +1,5 @@
 <template>
   <ve-stack class="mt-4">
-    <div>REVIEWED ASSETS LIST</div>
     <div class="d-flex justify-end">
       <v-select
         v-model="status"
@@ -11,7 +10,7 @@
       />
     </div>
 
-    <!-- <nft-items-infinite-scroll
+    <nft-items-infinite-scroll
       v-slot="{list}"
       :filter="filter"
       :sort="sort"
@@ -30,14 +29,14 @@
           add-assets-details-modal
         />
       </ve-auto-grid>
-    </nft-items-infinite-scroll> -->
+    </nft-items-infinite-scroll>
   </ve-stack>
 </template>
 
 <script>
   import { VeStack, VeAutoGrid } from '@/casimir-framework/vue-elements';
   import { NftItemMetadataDraftStatus } from '@/casimir-framework/vars';
-  // import { NftItemsInfiniteScroll } from '@casimir.one/nft-items-module';
+  import { NftItemsInfiniteScroll } from '@/casimir-framework/modules/nft-items';
 
   import { AssetCard } from '@/components';
 
@@ -48,7 +47,7 @@
       VeStack,
       VeAutoGrid,
       AssetCard,
-      // NftItemsInfiniteScroll
+      NftItemsInfiniteScroll
     },
 
     data() {

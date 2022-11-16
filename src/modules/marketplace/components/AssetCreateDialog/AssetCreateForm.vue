@@ -9,13 +9,13 @@
     >
       <ve-stack>
         CREATE ASSET FORM
-        <!-- <layout-renderer
+        <layout-renderer
           v-if="formSchema"
           :key="forceUpdateKey"
           v-model="formData"
           :schema="formSchema"
           :schema-data="schemaData"
-        /> -->
+        />
 
         <validation-provider
           v-slot="{ errors }"
@@ -48,8 +48,8 @@
 </template>
 
 <script>
-  // import { attributedFormFactory, LayoutRenderer } from '@casimir.one/layouts-module';
-  // import { NftItemMetadataDraftStatus, AttributeScope } from '@casimir.one/platform-core';
+  import { attributedFormFactory, LayoutRenderer } from '@/casimir-framework/modules/layouts';
+  import { NftItemMetadataDraftStatus, AttributeScope } from '@/casimir-framework/vars';
   import { MBtn } from '@/components/MBtn';
   import { VeStack } from '@/casimir-framework/vue-elements';
 
@@ -57,33 +57,39 @@
     name: 'AssetCreateForm',
 
     components: {
-      // LayoutRenderer,
+      LayoutRenderer,
       VeStack,
       MBtn
     },
 
-    // mixins: [attributedFormFactory(AttributeScope.NFT_ITEM, 'nftItem')],
+    mixins: [attributedFormFactory(AttributeScope.NFT_ITEM, 'nftItem')],
 
     data() {
       return {
-        invalid: false,
         loading: false,
         isModerationChecked: false
       };
     },
 
     computed: {
-      // formSchema() {
-      //   return this.$layouts.getMappedData('nftItem.form')?.value;
-      // },
+      formSchema() {
+        return this.$layouts.getMappedData('nftItem.form')?.value;
+      },
+
+      nftCollection() {
+        return {} //this.$store.getters.userNftCollection;
+      },
     },
 
     mounted() {
-      // this.clearForm();
+      this.clearForm();
       // this.reloadNftCollection();
     },
 
     methods: {
+      // async reloadNftCollection() {
+      //   await this.$store.dispatch('getCurrentUserNftCollection');
+      // },
 
       async submit() {
         this.loading = true;
@@ -92,82 +98,92 @@
       },
 
       clearForm() {
+        this.restoreOldValue(true);
+
         this.isModerationChecked = false;
+        this.$refs.validationObserver.reset();
       },
 
-      // async sellLazy() {
-      //   const asset = this.$attributes
-      //     .getMappedData('nftItem.price', this.lazyFormData.attributes)?.value;
+      async sellLazy() {
+        const { _id, issuer, nextNftItemId } = this.nftCollection;
+        const asset = this.$attributes
+          .getMappedData('nftItem.price', this.lazyFormData.attributes)?.value;
 
-      //   const payload = {
-      //     initiator: this.$currentUser,
-      //     data: {
-      //       issuer,
-      //       asset,
-      //       nftCollectionId: _id,
-      //       nftItemId: nextNftItemId
-      //     }
-      //   };
+        const payload = {
+          initiator: this.$currentUser,
+          data: {
+            issuer,
+            asset,
+            nftCollectionId: _id,
+            nftItemId: nextNftItemId
+          }
+        };
 
-      //   await this.$store.dispatch('nftItemDrafts/sellLazy', payload);
-      // },
+        await this.$store.dispatch('nftItemDrafts/sellLazy', payload);
+      },
 
       async createAsset() {
+        if (!this.nftCollection) {
+          this.$notifier.showError(this.$t('marketplace.createAsset.errors.noNftCollection'));
+          return;
+        }
 
-        // let createdAssetId;
-        // try {
-        //   const draftPayload = {
-        //     data: {
-        //       owner: this.$currentUser._id,
-        //       ownedByTeam: false,
-        //       authors: [this.$currentUser._id],
-        //       status: NftItemMetadataDraftStatus.IN_PROGRESS,
-        //       ...this.lazyFormData
-        //     }
-        //   };
+        let createdAssetId;
+        try {
+          const draftPayload = {
+            data: {
+              owner: this.$currentUser._id,
+              ownedByTeam: false,
+              nftCollectionId: this.nftCollection._id,
+              nftItemId: this.nftCollection.nextNftItemId,
+              authors: [this.$currentUser._id],
+              status: NftItemMetadataDraftStatus.IN_PROGRESS,
+              ...this.lazyFormData
+            }
+          };
 
-        //   const {
-        //     data:
-        //       { _id }
-        //   } = await this.$store.dispatch('nftItemDrafts/create', draftPayload);
-        //   createdAssetId = _id;
+          const {
+            data:
+              { _id }
+          } = await this.$store.dispatch('nftItemDrafts/create', draftPayload);
+          createdAssetId = _id;
 
-        //   await this.sellLazy();
+          await this.sellLazy();
 
-        //   const {
-        //     nftItemMetadataDraftModerationRequired = false
-        //   } = this.$currentPortal?.profile?.settings?.moderation || {};
-        //   const status = nftItemMetadataDraftModerationRequired
-        //     ? NftItemMetadataDraftStatus.PROPOSED
-        //     : NftItemMetadataDraftStatus.APPROVED;
+          const {
+            nftItemMetadataDraftModerationRequired = false
+          } = this.$currentPortal?.profile?.settings?.moderation || {};
+          const status = nftItemMetadataDraftModerationRequired
+            ? NftItemMetadataDraftStatus.PROPOSED
+            : NftItemMetadataDraftStatus.APPROVED;
 
-        //   const changeStatusPayload = {
-        //     data: {
-        //       _id: createdAssetId,
-        //       status
-        //     }
-        //   };
+          const changeStatusPayload = {
+            data: {
+              _id: createdAssetId,
+              status
+            }
+          };
 
-        //   await this.$store.dispatch('nftItemDrafts/moderate', changeStatusPayload);
+          await this.$store.dispatch('nftItemDrafts/moderate', changeStatusPayload);
 
-        //   this.reloadNftCollection();
+          // this.reloadNftCollection();
 
-        //   this.$notifier.showSuccess(this.$t('marketplace.createAsset.createSuccess'));
-        //   this.$emit('success');
-        //   this.$eventBus.$emit('submit-asset');
-        //   this.clearForm();
-        // } catch (error) {
-        //   if (createdAssetId) {
-        //     this.$store.dispatch('nftItemDrafts/remove', createdAssetId);
-        //   }
-        //   if (error && error?.message !== 'close'
-        //     && error?.error?.message !== 'close') {
-        //     console.error(error.error || error);
-        //     const errorText = error.statusCode === 409
-        //       ? this.$t('marketplace.createAsset.errors.duplicate') : error;
-        //     this.$notifier.showError(errorText);
-        //   }
-        // }
+          this.$notifier.showSuccess(this.$t('marketplace.createAsset.createSuccess'));
+          this.$emit('success');
+          this.$eventBus.$emit('submit-asset');
+          this.clearForm();
+        } catch (error) {
+          if (createdAssetId) {
+            this.$store.dispatch('nftItemDrafts/remove', createdAssetId);
+          }
+          if (error && error?.message !== 'close'
+            && error?.error?.message !== 'close') {
+            console.error(error.error || error);
+            const errorText = error.statusCode === 409
+              ? this.$t('marketplace.createAsset.errors.duplicate') : error;
+            this.$notifier.showError(errorText);
+          }
+        }
       }
     }
   };

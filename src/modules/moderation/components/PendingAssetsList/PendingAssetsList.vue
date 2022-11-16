@@ -1,5 +1,5 @@
 <template>
-  <!-- <nft-items-infinite-scroll
+  <nft-items-infinite-scroll
     v-slot="{list}"
     :filter="filter"
     is-draft
@@ -19,23 +19,20 @@
         :success-decline-message="$t('moderation.pendingAssets.declineSuccess')"
       />
     </ve-auto-grid>
-  </nft-items-infinite-scroll> -->
-  <div>
-    PENDING ASSETS LIST
-  </div>
+  </nft-items-infinite-scroll>
 </template>
 
 <script>
   import { NftItemMetadataDraftStatus } from '@/casimir-framework/vars';
-  // import { NftItemsInfiniteScroll, NftItemDraftModerationCard } from '@casimir.one/nft-items-module';
+  import { NftItemsInfiniteScroll, NftItemDraftModerationCard } from '@/casimir-framework/modules/nft-items';
   import { VeAutoGrid } from '@/casimir-framework/vue-elements';
 
   export default {
     name: 'PendingAssetsList',
 
     components: {
-      // NftItemDraftModerationCard,
-      // NftItemsInfiniteScroll,
+      NftItemDraftModerationCard,
+      NftItemsInfiniteScroll,
       VeAutoGrid
     },
 
