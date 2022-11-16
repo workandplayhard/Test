@@ -1,11 +1,11 @@
 <template>
-  <!-- <validation-observer
+  <validation-observer
     v-slot="{ invalid, handleSubmit }"
     ref="validationObserver"
-  > -->
+  >
     <v-form
       :disabled="loading"
-      @submit="submit"
+      @submit.prevent="handleSubmit(submit)"
     >
       <ve-stack>
         CREATE ASSET FORM
@@ -15,7 +15,7 @@
           v-model="formData"
           :schema="formSchema"
           :schema-data="schemaData"
-        />
+        /> -->
 
         <validation-provider
           v-slot="{ errors }"
@@ -30,7 +30,7 @@
             hide-details="auto"
             class="pa-0 mt-0"
           />
-        </validation-provider> -->
+        </validation-provider>
 
         <div class="buttons-container ml-auto">
           <m-btn
@@ -44,7 +44,7 @@
         </div>
       </ve-stack>
     </v-form>
-  <!-- </validation-observer> -->
+  </validation-observer>
 </template>
 
 <script>

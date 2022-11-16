@@ -4,10 +4,8 @@ import '@mdi/font/css/materialdesignicons.css';
 
 import Vue from 'vue';
 
-// import { CreateApp } from '@casimir.one/platform-util';
 import { CreateApp } from '@/casimir';
-// import { ValidationPlugin } from '@casimir.one/validation-plugin';
-// import { VuetifyExtended } from '@casimir.one/vuetify-extended';
+import { ValidationPlugin } from '@/plugins/Validation';
 import { VuetifyExtended } from '@/plugins/VuetifyExtended';
 
 // import { EnvModule } from '@casimir.one/env-module';
@@ -90,7 +88,7 @@ const nftMarketplaceApp = new CreateApp(Vue, {
 nftMarketplaceApp
   // .addModule(EnvModule)
 
-  // .addModule(ValidationPlugin)
+  .addModule(ValidationPlugin)
   .addModule(VuetifyExtended, { vuetify })
 
   // .addModule(PortalsModule)
