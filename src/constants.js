@@ -16,3 +16,14 @@ export const SYSTEM_ROLE = {
   TEAM_ADMIN: 'team-admin',
   ANY: '*'
 };
+
+
+export const ViewMode = {
+  CREATE: 1,
+  EDIT: 2,
+  READ: 3,
+  
+  '1': 'CREATE',
+  '2': 'EDIT',
+  '3': 'READ'
+};

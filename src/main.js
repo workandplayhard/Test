@@ -22,7 +22,7 @@ import { VuetifyExtended } from '@/plugins/VuetifyExtended';
 
 // import { NftMarketplaceAuthModule } from '@/modules/auth';
 import { NftMarketplaceMarketplaceModule } from '@/modules/marketplace';
-// import { NftMarketplaceAdminModule } from '@/modules/admin';
+import { NftMarketplaceAdminModule } from '@/modules/admin';
 // import { NftMarketplaceProfileModule } from '@/modules/profile';
 // import { NftMarketplaceWalletModule } from '@/modules/wallet';
 import { NftMarketplaceModerationModule } from '@/modules/moderation';
@@ -104,7 +104,7 @@ nftMarketplaceApp
   // .addModule(NftMarketplaceWalletModule)
   // .addModule(NftMarketplaceAuthModule)
   .addModule(NftMarketplaceMarketplaceModule)
-  // .addModule(NftMarketplaceAdminModule)
+  .addModule(NftMarketplaceAdminModule)
   // .addModule(NftMarketplaceProfileModule)
   .addModule(NftMarketplaceModerationModule)
 
