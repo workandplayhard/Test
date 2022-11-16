@@ -1,6 +1,5 @@
 <template>
-  <!-- <ve-stack flow="column" gap="8"> -->
-  <div>
+  <ve-stack flow="column" gap="8">
     <!-- <m-btn
       v-if="$isGuest"
       kind="secondary"
@@ -89,12 +88,11 @@
       />
 
     </template>
-  </div>
-  <!-- </ve-stack> -->
+  </ve-stack>
 </template>
 
 <script>
-  // import { VeStack } from '@casimir.one/vue-elements';
+  import { VeStack } from '@/components/vue-elements';
   import { AssetCreateDialog } from '@/modules/marketplace/components/AssetCreateDialog';
   import { MBtn } from '../MBtn';
 
@@ -102,7 +100,7 @@
     name: 'AppBarUser',
 
     components: {
-      // VeStack,
+      VeStack,
       MBtn,
       AssetCreateDialog,
     },

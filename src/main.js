@@ -8,6 +8,8 @@ import Vue from 'vue';
 import { CreateApp } from './casimir';
 // import { ValidationPlugin } from '@casimir.one/validation-plugin';
 // import { VuetifyExtended } from '@casimir.one/vuetify-extended';
+import { VuetifyExtended } from '@/plugins/VuetifyExtended';
+
 // import { EnvModule } from '@casimir.one/env-module';
 // import { PortalsModule } from '@casimir.one/portals-module';
 // import { ScopesModule } from '@casimir.one/scopes-module';
@@ -89,7 +91,7 @@ nftMarketplaceApp
   // .addModule(EnvModule)
 
   // .addModule(ValidationPlugin)
-  // .addModule(VuetifyExtended, { vuetify })
+  .addModule(VuetifyExtended, { vuetify })
 
   // .addModule(PortalsModule)
   // .addModule(ScopesModule)

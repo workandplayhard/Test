@@ -8,8 +8,7 @@
   >
     <div>ASSET DETAILS: {{asset.name}}</div>
     <template v-if="!completeCheckout" #aside>
-      <!-- <vex-image -->
-      <v-img
+      <vex-image
         height="500"
         :min-width="minImageWidth"
         content-class="responsive-image"
@@ -70,7 +69,7 @@
   // import { dateMixin } from '@casimir.one/platform-components';
   import { dateMixin } from './../../../../casimir';
   // import { userHelpersMixin } from '@casimir.one/users-module';
-  // import { VexImage } from '@casimir.one/vuetify-extended';
+  import { VexImage } from '@/plugins/VuetifyExtended';
   // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
   // import { attributeMethodsFactory, expandAttributes } from '@casimir.one/attributes-module';
   // import { attributedDetailsFactory, LayoutRenderer } from '@casimir.one/layouts-module';
@@ -83,7 +82,7 @@
     components: {
       MDialog,
       MBtn,
-      // VexImage,
+      VexImage,
       // LayoutRenderer
     },
 

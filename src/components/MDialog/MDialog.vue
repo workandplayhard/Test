@@ -42,14 +42,9 @@
 
 <script>
   import { VDialog } from 'vuetify/lib/components';
-  import { VeStack } from './../vue-elements/lib/components/VeStack';
-  // import { VeStack } from '@casimir.one/vue-elements';
-
-  // import {
-  //   contextMixin,
-  //   getBindableProps
-  // } from '@casimir.one/vuetify-extended';
-  import { contextMixin, getBindableProps, convertToUnit } from './../../casimir';
+  import { VeStack } from '@/components/vue-elements';
+  import { contextMixin, getBindableProps } from '@/plugins/VuetifyExtended';
+  import { convertToUnit } from './../../casimir';
 
   import { MBtn } from '../MBtn';
 

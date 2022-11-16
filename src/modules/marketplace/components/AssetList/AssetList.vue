@@ -1,13 +1,11 @@
 <template>
-  <!-- <vex-section> -->
-    <div>
-      ASSETS LISTING PAGE
+  <vex-section>
+    ASSETS LISTING PAGE
     <ve-stack>
-      <!-- <vex-section-title
+      <vex-section-title
         :title="$t('marketplace.assetList.allNfts')"
-      > -->
-      <div>
-        <!-- <template #append>
+      >
+        <template #append>
           <v-select
             v-model="sort"
             :label="$t('marketplace.assetList.sorting')"
@@ -27,9 +25,8 @@
               </div>
             </template>
           </v-select>
-        </template> -->
-      </div>
-      <!-- </vex-section-title> -->
+        </template>
+      </vex-section-title>
 
       <!-- <nft-items-infinite-scroll
         ref="scroll"
@@ -59,15 +56,12 @@
       <!-- </nft-items-infinite-scroll> -->
       </div>
     </ve-stack>
-  <!-- </vex-section> -->
-  </div>
+  </vex-section>
 </template>
 
 <script>
-  // import { VexSection, VexSectionTitle } from '@casimir.one/vuetify-extended';
-  // import { VeStack, VeAutoGrid } from '@casimir.one/vue-elements';
-  import { VeStack } from './../../../../components/vue-elements/lib/components/VeStack';
-  import { VeAutoGrid } from './../../../../components/vue-elements/lib/components/VeAutoGrid';
+  import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
+  import { VeStack, VeAutoGrid } from './../../../../components/vue-elements';
   import { AssetCard } from './../AssetCard';
   // import { NftItemsInfiniteScroll } from '@casimir.one/nft-items-module';
   // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
@@ -77,8 +71,8 @@
 
     components: {
       AssetCard,
-      // VexSection,
-      // VexSectionTitle,
+      VexSection,
+      VexSectionTitle,
       VeStack,
       VeAutoGrid,
       // NftItemsInfiniteScroll
