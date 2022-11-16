@@ -31,16 +31,16 @@
           </m-btn>
         </template>
       </vex-section-title>
-      <!-- <attributes-list
+      <attributes-list
         :on-click-edit="onClickEdit"
         :on-click-remove="onClickRemove"
-      /> -->
+      />
     </ve-stack>
   </vex-section>
 </template>
 
 <script>
-  // import { AttributesList } from '@casimir.one/attributes-module';
+  import { AttributesList } from '@/modules/attributes';
   import { MBtn } from '@/components/MBtn';
   import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
   import { VeStack } from '@/components/vue-elements';
@@ -48,7 +48,7 @@
   export default {
     name: 'AdminAttributes',
     components: {
-      // AttributesList,
+      AttributesList,
       MBtn,
       VeStack,
       VexSection,

@@ -13,20 +13,20 @@
       <ve-stack :gap="32">
         <vex-section-title :title="title" />
 
-        <!-- <attribute-edit
+        <attribute-edit
           v-if="ready"
           :mode="mode"
           :value="attributeData"
           @success="onSuccess"
           @error="onError"
-        /> -->
+        />
       </ve-stack>
     </vex-section>
   </v-sheet>
 </template>
 
 <script>
-  // import { AttributeEdit } from '@casimir.one/attributes-module';
+  import { AttributeEdit } from '@/modules/attributes';
   import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
   import { VeStack } from '@/components/vue-elements';
   import { ViewMode } from '@/constants';
@@ -34,7 +34,7 @@
   export default {
     name: 'AdminAttributesForm',
     components: {
-      // AttributeEdit,
+      AttributeEdit,
       VeStack,
       VexSection,
       VexSectionTitle

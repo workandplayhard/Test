@@ -10,9 +10,9 @@ import { VuetifyExtended } from '@/plugins/VuetifyExtended';
 
 // import { EnvModule } from '@casimir.one/env-module';
 // import { PortalsModule } from '@casimir.one/portals-module';
-// import { ScopesModule } from '@casimir.one/scopes-module';
-// import { AttributesModule } from '@casimir.one/attributes-module';
-// import { LayoutsModule } from '@casimir.one/layouts-module';
+import { ScopesModule } from '@/casimir-framework/modules/scopes/lib';
+import { AttributesModule } from '@/modules/attributes';
+import { LayoutsModule } from '@/modules/layouts';
 // import { AuthModule } from '@casimir.one/auth-module';
 // import { UsersModule } from '@casimir.one/users-module';
 // import { TeamsModule } from '@casimir.one/teams-module';
@@ -32,7 +32,7 @@ import i18n from '@/plugins/i18n';
 import router from '@/router';
 import store from '@/store';
 import App from '@/App';
-// import { layoutBuilderElements } from '@/config/layoutBuilder';
+import { layoutBuilderElements } from '@/config/layoutBuilder';
 
 Vue.config.productionTip = false;
 
@@ -77,13 +77,13 @@ const nftMarketplaceApp = new CreateApp(Vue, {
 //   ]
 // };
 
-// const layoutsModuleOptions = {
-//   blocks: layoutBuilderElements.blocks,
-//   components: {
-//     ...layoutBuilderElements.components
-//   }
+const layoutsModuleOptions = {
+  blocks: layoutBuilderElements.blocks,
+  components: {
+    ...layoutBuilderElements.components
+  }
 
-// };
+};
 
 nftMarketplaceApp
   // .addModule(EnvModule)
@@ -92,9 +92,9 @@ nftMarketplaceApp
   .addModule(VuetifyExtended, { vuetify })
 
   // .addModule(PortalsModule)
-  // .addModule(ScopesModule)
-  // .addModule(AttributesModule)
-  // .addModule(LayoutsModule, layoutsModuleOptions)
+  .addModule(ScopesModule)
+  .addModule(AttributesModule)
+  .addModule(LayoutsModule, layoutsModuleOptions)
   // .addModule(AuthModule)
   // .addModule(UsersModule, usersModuleOptions)
   // .addModule(TeamsModule)

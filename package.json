@@ -32,7 +32,19 @@
     "chroma-js": "^2.1.2",
     "@array-utils/chunk-it": "^3.0.1",
     "colorthief": "^2.3.2",
-    "vee-validate": "^3.4.9"
+    "vee-validate": "^3.4.9",
+    "dot-prop": "^6.0.1",
+    "vue-clamp": "^0.3.2",
+    "vuedraggable": "^2.24.3",
+    "recursive-iterator": "^3.3.0",
+    "kind-of": "^6.0.3",
+    "object-path": "^0.11.5",
+    "crc": "^3.8.0",
+    "filter-where": "^2.0.0",
+    "uuid": "^8.3.2",
+    "axios": "^0.21.1",
+    "@noble/hashes": "^1.1.2",
+    "md5": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
