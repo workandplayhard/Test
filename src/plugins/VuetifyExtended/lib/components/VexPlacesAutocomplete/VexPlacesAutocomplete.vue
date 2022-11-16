@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import { defineComponent } from '@/casimir';
+  import { defineComponent } from '@/casimir-framework/all';
   import VexAutocomplete from '../VexAutocomplete/VexAutocomplete';
   import { getBindableProps } from '../../composables';
 

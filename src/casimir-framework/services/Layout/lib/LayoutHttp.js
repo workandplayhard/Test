@@ -1,5 +1,5 @@
 import { HttpService } from '@/casimir-framework/services/Http';
-import { makeSingletonInstance } from '@/casimir';
+import { makeSingletonInstance } from '@/casimir-framework/all';
 
 /**
  * Layouts HTTP transport

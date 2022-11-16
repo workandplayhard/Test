@@ -1,4 +1,4 @@
-import { SYSTEM_ROLE, ViewMode } from '@/constants';
+import { SYSTEM_ROLE, ViewMode } from '@/casimir-framework/vars';
 
 import { AdminAttributes } from '@/modules/admin/components/attributes/AdminAttributes';
 import { AdminAttributesForm } from '@/modules/admin/components/attributes/AdminAttributesForm';

@@ -28,7 +28,7 @@
 
 <script>
   import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
-  import { VeStack } from '@/components/vue-elements';
+  import { VeStack } from '@/casimir-framework/vue-elements';
 
   // import { LayoutsSettings } from '@casimir.one/layouts-module';
 

@@ -1,5 +1,5 @@
 // import { proxydi } from '@casimir.one/proxydi';
-import { wrapInArray } from '@/casimir';
+import { wrapInArray } from '@/casimir-framework/all';
 import i18n from '@/plugins/i18n';
 
 import { normalizeDates } from '../helpers';

@@ -1,4 +1,4 @@
-import { makeSingletonInstance } from '@/casimir';
+import { makeSingletonInstance } from '@/casimir-framework/all';
 import { JsonDataMsg } from '@/casimir-framework/messages';
 import {
   CreateLayoutCmd, UpdateLayoutCmd, DeleteLayoutCmd, UpdateLayoutSettingsCmd

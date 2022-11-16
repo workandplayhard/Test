@@ -4,15 +4,15 @@ import '@mdi/font/css/materialdesignicons.css';
 
 import Vue from 'vue';
 
-import { CreateApp } from '@/casimir';
+import { CreateApp } from '@/casimir-framework/all';
 import { ValidationPlugin } from '@/plugins/Validation';
 import { VuetifyExtended } from '@/plugins/VuetifyExtended';
 
 // import { EnvModule } from '@casimir.one/env-module';
 // import { PortalsModule } from '@casimir.one/portals-module';
-import { ScopesModule } from '@/casimir-framework/modules/scopes/lib';
-import { AttributesModule } from '@/modules/attributes';
-import { LayoutsModule } from '@/modules/layouts';
+import { ScopesModule } from '@/casimir-framework/modules/scopes';
+import { AttributesModule } from '@/casimir-framework/modules/attributes';
+import { LayoutsModule } from '@/casimir-framework/modules/layouts';
 // import { AuthModule } from '@casimir.one/auth-module';
 // import { UsersModule } from '@casimir.one/users-module';
 // import { TeamsModule } from '@casimir.one/teams-module';

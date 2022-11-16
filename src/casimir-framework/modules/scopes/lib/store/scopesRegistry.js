@@ -4,7 +4,7 @@ import {
   setOneMutationFactory,
   collectionMerge,
   collectionOne
-} from '@/casimir';
+} from '@/casimir-framework/all';
 
 const STATE = {
   data: []

@@ -13,7 +13,7 @@
   // import { LayoutBuilder } from '@casimir.one/layouts-module';
   // import { formMixin } from '@casimir.one/platform-components';
   // import { filterObjectKeys } from '@casimir.one/toolbox';
-  import { formMixin, filterObjectKeys } from '@/casimir';
+  import { formMixin, filterObjectKeys } from '@/casimir-framework/all';
 
 
   export default {

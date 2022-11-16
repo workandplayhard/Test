@@ -5,7 +5,7 @@ import {
   UpdateAttributeSettingsCmd
 } from '@/casimir-framework/commands';
 import { JsonDataMsg } from '@/casimir-framework/messages';
-import { makeSingletonInstance } from '@/casimir';
+import { makeSingletonInstance } from '@/casimir-framework/all';
 import { AttributesHttp } from './AttributesHttp';
 
 /**

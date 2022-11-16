@@ -1,4 +1,4 @@
-import { wrapInArray } from '@/casimir';
+import { wrapInArray } from '@/casimir-framework/all';
 
 export const normalizeDates = (curr, prev, next) => ({
   currentDate: new Date(curr),

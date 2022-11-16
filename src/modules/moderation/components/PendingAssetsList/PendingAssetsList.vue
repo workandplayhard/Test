@@ -26,9 +26,9 @@
 </template>
 
 <script>
-  import { NftItemMetadataDraftStatus } from '@/constants';
+  import { NftItemMetadataDraftStatus } from '@/casimir-framework/vars';
   // import { NftItemsInfiniteScroll, NftItemDraftModerationCard } from '@casimir.one/nft-items-module';
-  import { VeAutoGrid } from '@/components/vue-elements';
+  import { VeAutoGrid } from '@/casimir-framework/vue-elements';
 
   export default {
     name: 'PendingAssetsList',

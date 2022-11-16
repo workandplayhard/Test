@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import { defineComponent } from '@/casimir';
+  import { defineComponent } from '@/casimir-framework/all';
   import { contextMixin } from '../../composables';
 
   /**

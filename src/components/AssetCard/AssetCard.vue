@@ -36,7 +36,7 @@
 <script>
   // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
   // import { dateMixin } from '@casimir.one/platform-components';
-  import { dateMixin } from '@/casimir';
+  import { dateMixin } from '@/casimir-framework/all';
   // import { attributedDetailsFactory, LayoutRenderer } from '@casimir.one/layouts-module';
   // import { attributeMethodsFactory, expandAttributes } from '@casimir.one/attributes-module';
 

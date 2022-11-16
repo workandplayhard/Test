@@ -1,5 +1,5 @@
-import { APP_CMD, APP_PROPOSAL } from '@/constants';
-import { assert, isNumber, isString } from '@/casimir';
+import { APP_CMD, APP_PROPOSAL } from '@/casimir-framework/vars';
+import { assert, isNumber, isString } from '@/casimir-framework/all';
 
 import ProtocolCmd from '../base/ProtocolCmd';
 import ProtocolEntityCmd from '../base/ProtocolEntityCmd';

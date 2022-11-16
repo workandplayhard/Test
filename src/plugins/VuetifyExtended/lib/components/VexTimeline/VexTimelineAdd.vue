@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import { defineComponent } from '@/casimir';
+  import { defineComponent } from '@/casimir-framework/all';
   /**
    * Component for adding a new point on the timeline
    */

@@ -1,4 +1,4 @@
-import { assert } from '@/casimir';
+import { assert } from '@/casimir-framework/all';
 import { APP_CMD_INFO } from '@/casimir-framework/commands';
 import AppMsg from './AppMsg';
 

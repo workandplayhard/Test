@@ -91,7 +91,7 @@
 </template>
 
 <script>
-  import { defineComponent } from '@/casimir';
+  import { defineComponent } from '@/casimir-framework/all';
   import parsePath from 'parse-path';
 
   // eslint-disable-next-line import/extensions,import/no-unresolved

@@ -1,5 +1,5 @@
-import { APP_CMD, AttributeScope } from '@/constants';
-import { assert, isArray } from '@/casimir';
+import { APP_CMD, AttributeScope } from '@/casimir-framework/vars';
+import { assert, isArray } from '@/casimir-framework/all';
 import AppCmd from '../base/AppCmd';
 
 /**

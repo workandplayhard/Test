@@ -1,6 +1,6 @@
 import { VChip } from 'vuetify/lib/components';
-import { defineComponent } from '@/casimir';
-import { NftItemMetadataDraftStatus } from '@/constants';
+import { defineComponent } from '@/casimir-framework/all';
+import { NftItemMetadataDraftStatus } from '@/casimir-framework/vars';
 
 export default defineComponent({
   name: 'AssetStatus',

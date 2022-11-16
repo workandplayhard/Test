@@ -1,5 +1,5 @@
-import { blocksGenerator } from '@/components/vue-layout-schema';
-import { AttributeScope } from '@/constants';
+import { blocksGenerator } from '@/casimir-framework/vue-layout-schema';
+import { AttributeScope } from '@/casimir-framework/vars';
 
 // import CollectionFormInfo from '@/components/CollectionCreateDialog/CollectionFormInfo';
 import {

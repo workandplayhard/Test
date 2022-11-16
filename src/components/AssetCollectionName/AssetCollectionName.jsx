@@ -1,4 +1,4 @@
-import { defineComponent } from '@/casimir';
+import { defineComponent } from '@/casimir-framework/all';
 
 export default defineComponent({
   name: 'AssetCollectionName',

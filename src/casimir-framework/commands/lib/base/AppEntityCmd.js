@@ -1,4 +1,4 @@
-import { genRipemd160Hash } from '@/casimir';
+import { genRipemd160Hash } from '@/casimir-framework/all';
 import AppCmd from './AppCmd';
 
 /**

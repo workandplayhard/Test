@@ -24,7 +24,7 @@
 
 <script>
   import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
-  import { VeStack } from '@/components/vue-elements';
+  import { VeStack } from '@/casimir-framework/vue-elements';
   // import { awaitForStore } from '@casimir.one/platform-util';
 
   export default {

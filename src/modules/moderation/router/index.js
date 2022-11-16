@@ -1,4 +1,4 @@
-import { SYSTEM_ROLE } from '@/constants';
+import { SYSTEM_ROLE } from '@/casimir-framework/vars';
 
 import { ModerationPage } from '../components/ModerationPage';
 import { PendingAssetsList } from '../components/PendingAssetsList';

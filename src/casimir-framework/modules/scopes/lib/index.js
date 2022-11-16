@@ -1,1 +1,0 @@
-export { ScopesModule } from './scopesModule';

@@ -1,4 +1,4 @@
-import { assert } from '@/casimir';
+import { assert } from '@/casimir-framework/all';
 import { scopesRegistry } from './store';
 
 const moduleName = 'ScopesModule';

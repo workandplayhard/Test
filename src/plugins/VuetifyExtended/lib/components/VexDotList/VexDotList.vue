@@ -25,8 +25,8 @@
 </template>
 
 <script>
-  import { defineComponent } from '@/casimir';
-  import { VeStack } from '@/components/vue-elements';
+  import { defineComponent } from '@/casimir-framework/all';
+  import { VeStack } from '@/casimir-framework/vue-elements';
   import VexDotListItem from './VexDotListItem';
   import { contextMixin } from '../../composables';
 

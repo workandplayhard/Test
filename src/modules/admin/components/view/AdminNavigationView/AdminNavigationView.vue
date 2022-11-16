@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import { routerView } from '@/casimir';
+  import { routerView } from '@/casimir-framework/all';
 
 
   import { AdminNavigation } from '@/modules/admin/components/view/AdminNavigation';

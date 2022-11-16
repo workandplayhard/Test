@@ -1,5 +1,5 @@
-import { APP_CMD, NftItemMetadataDraftStatus } from '@/constants';
-import { assert, isNumber, isString, isNumeric, isBoolean } from '@/casimir';
+import { APP_CMD, NftItemMetadataDraftStatus } from '@/casimir-framework/vars';
+import { assert, isNumber, isString, isNumeric, isBoolean } from '@/casimir-framework/all';
 import AppCmd from '../base/AppCmd';
 
 /**

@@ -51,7 +51,7 @@
   // import { attributedFormFactory, LayoutRenderer } from '@casimir.one/layouts-module';
   // import { NftItemMetadataDraftStatus, AttributeScope } from '@casimir.one/platform-core';
   import { MBtn } from '@/components/MBtn';
-  import { VeStack } from '@/components/vue-elements';
+  import { VeStack } from '@/casimir-framework/vue-elements';
 
   export default {
     name: 'AssetCreateForm',

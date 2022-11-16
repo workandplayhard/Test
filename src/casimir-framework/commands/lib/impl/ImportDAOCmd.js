@@ -1,5 +1,5 @@
-import { APP_CMD } from '@/constants';
-import { assert, isNumber, isString, isBoolean } from '@/casimir';
+import { APP_CMD } from '@/casimir-framework/vars';
+import { assert, isNumber, isString, isBoolean } from '@/casimir-framework/all';
 import AppEntityCmd from '../base/AppEntityCmd';
 
 /**

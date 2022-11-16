@@ -24,7 +24,7 @@
 
 <script>
   import AppBarUser from '@/components/AppBar/AppBarUser';
-  import { APP_BAR_HEIGHT } from '@/constants';
+  import { APP_BAR_HEIGHT } from '@/casimir-framework/vars';
 
   export default {
     name: 'AppBar',

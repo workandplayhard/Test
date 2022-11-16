@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { APP_CMD } from '@/constants';
-import { assert, isNumber, isString } from '@/casimir';
+import { APP_CMD } from '@/casimir-framework/vars';
+import { assert, isNumber, isString } from '@/casimir-framework/all';
 import ProtocolEntityCmd from '../base/ProtocolEntityCmd';
 
 /**

@@ -1,4 +1,4 @@
-import { assert } from '@/casimir';
+import { assert } from '@/casimir-framework/all';
 
 /**
  * App message

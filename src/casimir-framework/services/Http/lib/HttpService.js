@@ -2,7 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 // import { AccessService } from '@casimir.one/access-service';
 // import { proxydi } from '@casimir.one/proxydi';
-import { makeSingletonInstance } from '@/casimir';
+import { makeSingletonInstance } from '@/casimir-framework/all';
 import { handleHttpError } from './HttpError';
 
 /**

@@ -1,5 +1,5 @@
-import { assert } from '@/casimir';
-import { APP_CMD } from '@/constants';
+import { assert } from '@/casimir-framework/all';
+import { APP_CMD } from '@/casimir-framework/vars';
 
 /**
  * Class for base command

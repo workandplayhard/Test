@@ -90,7 +90,7 @@
 </template>
 
 <script>
-  import { VeStack } from '@/components/vue-elements';
+  import { VeStack } from '@/casimir-framework/vue-elements';
   import { AssetCreateDialog } from '@/modules/marketplace/components/AssetCreateDialog';
   import { MBtn } from '../MBtn';
 
