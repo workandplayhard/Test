@@ -1,6 +1,8 @@
 import { attributesStore, attributesRegistry } from './store';
 import { getAttributeFileSrc } from './composables/attributes';
 
+const DEIP_SERVER_URL = "http://127.0.0.1:8079"; 
+
 // eslint-disable-next-line no-unused-vars
 const install = (Vue, options = {}) => {
   if (install.installed) return;
@@ -42,7 +44,8 @@ const install = (Vue, options = {}) => {
           },
 
           getFileSrc: (opts = {}) => getAttributeFileSrc({
-            serverUrl: this.$env.DEIP_SERVER_URL,
+            // serverUrl: this.$env.DEIP_SERVER_URL,
+            serverUrl: DEIP_SERVER_URL,
             ...opts
           })
         };

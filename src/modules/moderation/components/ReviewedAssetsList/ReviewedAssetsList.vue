@@ -79,8 +79,7 @@
     computed: {
       filter() {
         return {
-          status: this.status,
-          lazySellProposalId: { $exists: true }
+          status: this.status
         };
       }
     }

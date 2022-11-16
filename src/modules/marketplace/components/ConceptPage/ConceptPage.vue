@@ -1,9 +1,18 @@
 <template>
   <vex-section>
-    <ve-stack>
+    <ve-stack>AssetList
       <vex-section-title
         :title="$t('marketplace.conceptPage.pageTitle')"
       >
+        <template #append>
+          <router-link
+            :to="{ name: 'assetList' }"
+            class="link text--primary d-block"
+          >
+            <!-- XXX: Put your logo here -->
+            5 creation already
+          </router-link>
+        </template>
       </vex-section-title>
       <div class="d-flex align-center justify-start">
         <div class="text-body-1">

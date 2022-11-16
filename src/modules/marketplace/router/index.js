@@ -17,7 +17,7 @@ export const marketplaceRouter = [
         meta: { auth: false }
       },
       {
-        name: 'marketplace',
+        name: 'assetList',
         path: 'asset/list',
         component: AssetList,
         meta: { auth: false }

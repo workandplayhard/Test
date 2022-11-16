@@ -98,74 +98,33 @@
 
       clearForm() {
         this.restoreOldValue(true);
-
         this.isModerationChecked = false;
         this.$refs.validationObserver.reset();
       },
 
-      async sellLazy() {
-        const { _id, issuer, nextNftItemId } = this.nftCollection;
-        // const asset = this.$attributes
-        //   .getMappedData('nftItem.price', this.lazyFormData.attributes)?.value;
-
-        const payload = {
-          initiator: this.$currentUser,
-          data: {
-            issuer,
-            asset,
-            nftCollectionId: _id,
-            nftItemId: nextNftItemId
-          }
-        };
-
-        await this.$store.dispatch('nftItemDrafts/sellLazy', payload);
-      },
-
       async createAsset() {
-        if (!this.nftCollection) {
-          this.$notifier.showError(this.$t('marketplace.createAsset.errors.noNftCollection'));
-          return;
-        }
+        debugger;
+        const email = this.$attributes.getMappedData('nftItem.name', this.lazyFormData.attributes)?.value;
+        debugger;
 
         let createdAssetId;
         try {
           const draftPayload = {
             data: {
-              owner: this.$currentUser._id,
+              nftCollectionId: "lisbon-I-love-you",
+              nftItemId: `${new Date().getTime()}`,
+              owner: email,
               ownedByTeam: false,
-              nftCollectionId: this.nftCollection._id,
-              nftItemId: this.nftCollection.nextNftItemId,
-              authors: [this.$currentUser._id],
-              status: NftItemMetadataDraftStatus.IN_PROGRESS,
+              authors: [email],
+              status: NftItemMetadataDraftStatus.PROPOSED,
               ...this.lazyFormData
             }
           };
+          debugger;
 
-          const {
-            data:
-              { _id }
-          } = await this.$store.dispatch('nftItemDrafts/create', draftPayload);
+          const { data: { _id } } = await this.$store.dispatch('nftItemDrafts/create', draftPayload);
+
           createdAssetId = _id;
-
-          await this.sellLazy();
-
-          const {
-            nftItemMetadataDraftModerationRequired = false
-          } = this.$currentPortal?.profile?.settings?.moderation || {};
-          const status = nftItemMetadataDraftModerationRequired
-            ? NftItemMetadataDraftStatus.PROPOSED
-            : NftItemMetadataDraftStatus.APPROVED;
-
-          const changeStatusPayload = {
-            data: {
-              _id: createdAssetId,
-              status
-            }
-          };
-
-          await this.$store.dispatch('nftItemDrafts/moderate', changeStatusPayload);
-
-          // this.reloadNftCollection();
 
           this.$notifier.showSuccess(this.$t('marketplace.createAsset.createSuccess'));
           this.$emit('success');

@@ -242,19 +242,8 @@ export class NonFungibleTokenService {
       'nft-collection-id': data.nftCollectionId,
       'nft-item-id': data.nftItemId
     });
-    const {
-      RETURN_MSG
-    } = this.proxydi.get('env');
-
-    if (RETURN_MSG === true) {
-      return msg;
-    }
 
     const response = await this.nonFungibleTokenHttp.createNftItemMetadataDraft(msg);
-    await this.webSocketService.waitForMessage(message => {
-      const [, eventBody] = message;
-      return eventBody.event.eventNum === APP_EVENT.NFT_ITEM_METADATA_DRAFT_CREATED && eventBody.event.eventPayload.entityId === response.data._id;
-    });
     return response;
   }
 
@@ -361,27 +350,8 @@ export class NonFungibleTokenService {
     }, {
       'entity-id': _id
     });
-    const {
-      RETURN_MSG
-    } = this.proxydi.get('env');
-
-    if (RETURN_MSG === true) {
-      return msg;
-    }
-
+ 
     const response = await this.nonFungibleTokenHttp.moderateNftItemMetadataDraft(msg);
-    await this.webSocketService.waitForMessage(message => {
-      const [, eventBody] = message;
-      const {
-        event: {
-          eventNum,
-          eventPayload
-        }
-      } = eventBody;
-      const statusUpdated = eventNum === APP_EVENT.NFT_ITEM_METADATA_DRAFT_STATUS_UPDATED && eventPayload._id === response.data._id;
-      const lazyProposalDeclined = eventNum === APP_EVENT.NFT_LAZY_SELL_PROPOSAL_DECLINED;
-      return statusUpdated || lazyProposalDeclined;
-    });
     return response;
   }
 

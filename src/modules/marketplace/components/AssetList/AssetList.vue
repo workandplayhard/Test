@@ -1,72 +1,34 @@
 <template>
   <vex-section>
-    ASSETS LISTING PAGE
     <ve-stack>
       <vex-section-title
         :title="$t('marketplace.assetList.allNfts')"
       >
-        <template #append>
-          <m-btn
-            small
-            kind="primary"
-            outlined
-            class="mr-4"
-            :to="{ name: 'assetCreate' }"
-          >
-            <v-icon left>
-              mdi-tune-vertical
-            </v-icon>
-            Create Asset
-          </m-btn>
-          <v-select
-            v-model="sort"
-            :label="$t('marketplace.assetList.sorting')"
-            :items="sortingOptions"
-            class="sort-select"
-          >
-            <template #item="{ item }">
-              <v-icon> {{ item.icon }} </v-icon>
-              <div class="ml-2">
-                {{ item.text }}
-              </div>
-            </template>
-            <template #selection="{ item }">
-              <v-icon> {{ item.icon }} </v-icon>
-              <div class="ml-2">
-                {{ item.text }}
-              </div>
-            </template>
-          </v-select>
-        </template>
       </vex-section-title>
 
-      <!-- <nft-items-infinite-scroll
+      <nft-items-infinite-scroll
         ref="scroll"
         :sort="sort"
         :filter="filter"
         is-draft
-      > -->
-      <div>
-        ASSETS LIST HERE
-        <!-- <template #default="{ list }"> -->
+      >
+        <template #default="{ list }">
           <ve-auto-grid
             cols="1"
             cols-sm="2"
             cols-lg="4"
           >
-            ASSET ITEM
-            <!-- <router-link
+            <router-link
               v-for="asset in list"
               :key="asset._id"
-              :to="{name: 'assetDetails', params: {id: asset._id}}"
+              :to="{ name: 'assetDetails', params: {id: asset._id} }"
               class="text-decoration-none"
             >
               <asset-card :asset="asset" is-draft />
-            </router-link> -->
+            </router-link>
           </ve-auto-grid>
-        <!-- </template> -->
-      <!-- </nft-items-infinite-scroll> -->
-      </div>
+        </template>
+      </nft-items-infinite-scroll>
     </ve-stack>
   </vex-section>
 </template>
@@ -75,8 +37,8 @@
   import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
   import { VeStack, VeAutoGrid } from '@/casimir-framework/vue-elements';
   import { AssetCard, MBtn } from '@/components';
-  // import { NftItemsInfiniteScroll } from '@casimir.one/nft-items-module';
-  // import { NftItemMetadataDraftStatus } from '@casimir.one/platform-core';
+  import { NftItemsInfiniteScroll } from '@/casimir-framework/modules/nft-items';
+  import { NftItemMetadataDraftStatus } from '@/casimir-framework/vars';
 
   export default {
     name: 'AssetList',
@@ -88,13 +50,13 @@
       VexSectionTitle,
       VeStack,
       VeAutoGrid,
-      // NftItemsInfiniteScroll
+      NftItemsInfiniteScroll
     },
 
     data() {
       return {
         loading: false,
-        // NftItemMetadataDraftStatus,
+        NftItemMetadataDraftStatus,
         sort: {},
         sortingOptions: [
           {
@@ -114,8 +76,7 @@
           }
         ],
         filter: {
-          // status: NftItemMetadataDraftStatus.APPROVED,
-          lazySellProposalId: { $exists: true }
+          status: NftItemMetadataDraftStatus.APPROVED,
         }
       };
     },

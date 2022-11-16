@@ -28,7 +28,7 @@ import { sha256 } from '@noble/hashes/sha256';
 import { ripemd160 } from '@noble/hashes/ripemd160';
 import where from 'filter-where';
 import { isEqual } from 'lodash';
-
+import RecursiveIterator from 'recursive-iterator';
 
 /**
  * @param {boolean} condition
