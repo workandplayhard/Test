@@ -1,35 +1,26 @@
 <template>
-  <div>
-    <v-card
-      outlined
-      class="nft-card"
-      @click="onCardClick"
-    >
-      <div v-if="isCopyLinkShown" class="button-container d-flex justify-end mt-4 mr-4">
-        <m-btn
-          icon
-          small
-          kind="secondary"
-          class="white"
-          :title="$t('components.assetCard.copyLink')"
-          @click.prevent="handleCopyLinkClick"
-        >
-          <v-icon>mdi-link</v-icon>
-        </m-btn>
-      </div>
-      <layout-renderer
-        :value="asset"
-        :schema="cardSchema"
-        :schema-data="cardSchemaData"
-      />
-    </v-card>
-    <asset-details
-      v-if="addAssetsDetailsModal && isAssetDetailsDialogOpen"
-      :id="asset._id"
-      v-model="isAssetDetailsDialogOpen"
-      :is-draft="isDraft"
+  <v-card
+    outlined
+    class="nft-card"
+  >
+    <div v-if="isCopyLinkShown" class="button-container d-flex justify-end mt-4 mr-4">
+      <m-btn
+        icon
+        small
+        kind="secondary"
+        class="white"
+        :title="$t('components.assetCard.copyLink')"
+        @click.prevent="handleCopyLinkClick"
+      >
+        <v-icon>mdi-link</v-icon>
+      </m-btn>
+    </div>
+    <layout-renderer
+      :value="asset"
+      :schema="cardSchema"
+      :schema-data="cardSchemaData"
     />
-  </div>
+  </v-card>
 </template>
 
 <script>
@@ -64,7 +55,6 @@
 
     data() {
       return {
-        isAssetDetailsDialogOpen: false
       };
     },
 
@@ -104,10 +94,6 @@
 
         navigator.clipboard.writeText(`${window.location.origin}/${props.href}`);
         this.$notifier.showSuccess(this.$t('components.assetCard.linkCopied'));
-      },
-
-      onCardClick() {
-        this.isAssetDetailsDialogOpen = true;
       }
     }
 

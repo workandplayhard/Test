@@ -1,7 +1,7 @@
-import { AssetList } from '../components/AssetList';
+import { AssetListPage } from '../components/AssetListPage';
 import { ConceptPage } from '../components/ConceptPage';
-import { AssetDetails } from '../components/AssetDetails';
 import { AssetCreatePage } from '../components/AssetCreatePage';
+import { AssetsDetailsPage } from '../components/AssetsDetailsPage';
 
 
 export const marketplaceRouter = [
@@ -19,7 +19,7 @@ export const marketplaceRouter = [
       {
         name: 'assetList',
         path: 'asset/list',
-        component: AssetList,
+        component: AssetListPage,
         meta: { auth: false }
       },
       {
@@ -30,20 +30,12 @@ export const marketplaceRouter = [
       },
       {
         name: 'assetDetails',
-        path: 'asset/:id',
-        components: {
-          default: AssetList,
-          dialog: AssetDetails
-        },
+        path: 'asset/details/:assetId',
+        component: AssetsDetailsPage,
         meta: { auth: false },
-        props: {
-          dialog: (route) => ({
-            value: true,
-            id: route.params.id,
-            mainRoute: { name: 'concept' },
-            isDraft: true
-          })
-        }
+        props: (route) => ({
+          assetId: route.params.assetId,
+        })
       }
     ]
   }

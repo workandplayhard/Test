@@ -13,7 +13,6 @@ export default defineComponent({
   computed: {
     authorName() {
       const { attributes } = this.schemaData.data;
-      console.log(this.schemaData.data);
       const arr = Object.keys(attributes).reduce((arr, key) => {
         return [...arr, { attributeId: key, value: attributes[key] }];
       }, []);

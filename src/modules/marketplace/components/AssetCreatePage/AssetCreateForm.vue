@@ -127,6 +127,12 @@
           this.$emit('success');
           this.$eventBus.$emit('submit-asset');
           this.clearForm();
+
+          this.$router.push({
+            name: 'assetDetails',
+            params: { assetId: createdAssetId }
+          });
+
         } catch (error) {
           if (createdAssetId) {
             this.$store.dispatch('nftItemDrafts/remove', createdAssetId);

@@ -2,16 +2,11 @@
   <vex-section>
     <ve-stack>
       <vex-section-title
-        :title="$t('marketplace.createAsset.formTitle')"
+        title="Assets Details"
       />
       <div class="d-flex align-center justify-center">
-        <asset-create-form
-          ref="createAssetForm"
-          class="d-block ml-6 mr-6"
-          @success="handleCreateSuccess"
-        />
+        <asset-details :assetId="assetId"/>
       </div>
-      <router-view />
     </ve-stack>
   </vex-section>
 </template>
@@ -19,25 +14,37 @@
 <script>
   import { VexSection, VexSectionTitle } from '@/plugins/VuetifyExtended';
   import { VeStack } from '@/casimir-framework/vue-elements';
-  import AssetCreateForm from './AssetCreateForm';
+  import { MBtn } from '@/components';
+
+  import AssetDetails from './AssetDetails';
 
   export default {
-    name: 'AssetCreatePage',
+    name: 'AssetsDetailsPage',
 
     components: {
-      AssetCreateForm,
+      MBtn,
       VexSection,
       VexSectionTitle,
-      VeStack
+      VeStack,
+      AssetDetails
     },
 
-    created() {
-    },
-
-    methods: {
-      handleCreateSuccess() {
-
+    props: {
+      assetId: {
+        type: String,
+        default: null
       },
+    },
+
+    data() {
+      return {
+      };
+    },
+
+    mounted() {
+    },
+
+    beforeDestroy() {
     }
   };
 </script>
