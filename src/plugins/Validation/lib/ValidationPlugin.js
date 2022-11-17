@@ -73,7 +73,7 @@ const install = (Vue, options = {}) => {
 export const ValidationPlugin = {
   name: 'ValidationPlugin',
   deps: [
-    // 'EnvModule'
+    'EnvModule'
   ],
   install
 };

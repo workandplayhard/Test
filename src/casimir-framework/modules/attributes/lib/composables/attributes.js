@@ -1,8 +1,6 @@
 import qs from 'qs';
 import { hasValue, wrapInArray, isObject } from '@/casimir-framework/all';
-// import { proxydi } from '@casimir.one/proxydi';
-
-const DEIP_SERVER_URL = "http://127.0.0.1:8079"; 
+import { proxydi } from '@/casimir-framework/proxydi';
 
 /**
  * Convert array attributes from model to object
@@ -142,7 +140,7 @@ export const getAttributeFileSrc = (opts = {}) => {
  * @return {Object}
  */
 export const attributeMethodsFactory = (data, scopeData = {}) => {
-  // const { DEIP_SERVER_URL } = proxydi.get('env');
+  const { DEIP_SERVER_URL } = proxydi.get('env');
 
   return {
     data,

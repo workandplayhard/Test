@@ -18,7 +18,7 @@ const install = (Vue, options = {}) => {
 export const NftMarketplaceMarketplaceModule = {
   name: 'NftMarketplaceMarketplaceModule',
   deps: [
-    // 'EnvModule',
+    'EnvModule',
     // 'AuthModule',
     // 'NftItemsModule'
   ],

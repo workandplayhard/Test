@@ -60,7 +60,7 @@ const install = (Vue, options = {}) => {
 export const LayoutsModule = {
   name: 'LayoutsModule',
   deps: [
-    // 'EnvModule',
+    'EnvModule',
     'AttributesModule'
   ],
   install

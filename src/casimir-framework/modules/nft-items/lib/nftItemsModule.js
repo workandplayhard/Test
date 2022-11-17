@@ -50,7 +50,7 @@ const install = (Vue, options = {}) => {
 export const NftItemsModule = {
   name: 'NftItemsModule',
   deps: [
-    // 'EnvModule',
+    'EnvModule',
     // 'AuthModule',
     // 'UsersModule',
     // 'NftCollectionsModule'

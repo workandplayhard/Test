@@ -52,8 +52,6 @@
 
   // const accessService = AccessService.getInstance();
 
-  const DEIP_SERVER_URL = "http://127.0.0.1:8079"; 
-
   /**
    * NFT item draft form component
    */
@@ -132,7 +130,7 @@
        * @param {string} fileHash
        */
       getContentUrl(fileHash) {
-        // const { DEIP_SERVER_URL } = this.$env;
+        const { DEIP_SERVER_URL } = this.$env;
         // return `${DEIP_SERVER_URL}/api/v2/nft-items/package/${this.draft._id}/
         // ${fileHash}?download=true&authorization=${accessService.getAccessToken()}`;
         return `${DEIP_SERVER_URL}/api/v2/nft-items/package/${this.draft._id}/

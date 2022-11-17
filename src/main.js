@@ -8,7 +8,7 @@ import { CreateApp } from '@/casimir-framework/all';
 import { ValidationPlugin } from '@/plugins/Validation';
 import { VuetifyExtended } from '@/plugins/VuetifyExtended';
 
-// import { EnvModule } from '@casimir.one/env-module';
+import { EnvModule } from '@/casimir-framework/modules/env';
 // import { PortalsModule } from '@casimir.one/portals-module';
 import { ScopesModule } from '@/casimir-framework/modules/scopes';
 import { AttributesModule } from '@/casimir-framework/modules/attributes';
@@ -85,7 +85,7 @@ const layoutsModuleOptions = {
 };
 
 nftMarketplaceApp
-  // .addModule(EnvModule)
+  .addModule(EnvModule)
 
   .addModule(ValidationPlugin)
   .addModule(VuetifyExtended, { vuetify })

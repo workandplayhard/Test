@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 // import { AccessService } from '@casimir.one/access-service';
-// import { proxydi } from '@casimir.one/proxydi';
+import { proxydi } from '@/casimir-framework/proxydi';
 import { makeSingletonInstance } from '@/casimir-framework/all';
 import { handleHttpError } from './HttpError';
 
@@ -10,7 +10,6 @@ import { handleHttpError } from './HttpError';
  * @typedef {import("axios").AxiosInstance} AxiosInstance
  */
 
-const DEIP_SERVER_URL = "http://127.0.0.1:8079";
 
 export class HttpService {
   /**
@@ -43,7 +42,7 @@ export class HttpService {
     axiosInstance.interceptors.request.use(
       async (originalConfig) => {
         const config = originalConfig;
-        config.baseURL = DEIP_SERVER_URL; // proxydi.get('env')?.DEIP_SERVER_URL;
+        config.baseURL = proxydi.get('env')?.DEIP_SERVER_URL;
         // const token = this._accessService.getAccessToken();
         // config.headers.Authorization = `Bearer ${token}`;
         // config.headers['deip-application'] = proxydi.get('env')?.APP_ID;
