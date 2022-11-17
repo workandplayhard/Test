@@ -4,9 +4,7 @@
       <vex-section-title
         title="Assets Details"
       />
-      <div class="d-flex align-center justify-center">
-        <asset-details :assetId="assetId"/>
-      </div>
+      <asset-details :assetId="assetId"/>
     </ve-stack>
   </vex-section>
 </template>
