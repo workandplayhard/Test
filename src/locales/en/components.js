@@ -20,7 +20,7 @@ export default {
     status: {
       APPROVED: 'Approved',
       REJECTED: 'Declined',
-      PROPOSED: 'Created'
+      PROPOSED: 'Pending'
     }
   },
   assetsInfiniteList: {
