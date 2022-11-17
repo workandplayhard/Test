@@ -89,7 +89,7 @@
       handleCopyLinkClick() {
         const props = this.$router.resolve({
           name: 'assetDetails',
-          params: { id: this.asset._id }
+          params: { assetId: this.asset._id }
         });
 
         navigator.clipboard.writeText(`${window.location.origin}/${props.href}`);
