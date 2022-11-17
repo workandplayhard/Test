@@ -17,7 +17,7 @@ export default {
     pageTitle: 'Concept Page',
   },
   assetList: {
-    allNfts: 'All NFTs',
+    allNfts: 'Queue',
     sorting: 'Sorting',
     byDefault: 'By default',
     byCreationDate: 'By creation date'
