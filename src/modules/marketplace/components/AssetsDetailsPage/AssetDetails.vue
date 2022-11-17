@@ -1,5 +1,5 @@
 <template>
-  <div v-if="asset">
+  <div v-if="asset && detailsSchema">
     <layout-renderer
       :value="asset"
       :schema="detailsSchema"
@@ -42,7 +42,7 @@
 
     computed: {
       detailsSchema() {
-        return this.$layouts.getMappedData('nftItem.details').value;
+        return this.$layouts.getMappedData('nftItem.details')?.value;
       },
 
       detailsSchemaData() {
