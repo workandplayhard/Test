@@ -39,13 +39,13 @@ export default defineComponent({
     },
 
     minImageWidth() {
-      return this.$vuetify.breakpoint.xs ? null : '500';
+      return '200';
     },
   },
 
   render() {
     return <vex-image 
-      height="500" 
+      height="400" 
       width="100%"
       min-width={this.minImageWidth}
       content-class="responsive-image" 

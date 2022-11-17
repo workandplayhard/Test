@@ -9,6 +9,10 @@ export default defineComponent({
     schemaData: {
       type: Object,
       default: () => ({})
+    },
+    textAlign: {
+      type: String,
+      default: "left"
     }
   },
 
@@ -23,6 +27,8 @@ export default defineComponent({
 
     if (!status) return null;
 
-    return <VChip outlined> { this.getStatusLabel(status) } </VChip>;
+    return <div style={{"text-align": this.textAlign}}>
+        <VChip outlined> { this.getStatusLabel(status) } </VChip>
+      </div>;
   }
 });

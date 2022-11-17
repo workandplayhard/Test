@@ -29,14 +29,12 @@
   import { attributedDetailsFactory, LayoutRenderer } from '@/casimir-framework/modules/layouts';
   import { attributeMethodsFactory, expandAttributes } from '@/casimir-framework/modules/attributes';
   import { MBtn } from '@/components/MBtn';
-  import AssetDetails from '@/modules/marketplace/components/AssetDetails/AssetDetails';
 
   export default {
     name: 'AssetCard',
 
     components: {
       MBtn,
-      AssetDetails,
       LayoutRenderer
     },
 

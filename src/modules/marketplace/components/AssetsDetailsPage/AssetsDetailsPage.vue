@@ -2,7 +2,7 @@
   <vex-section>
     <ve-stack>
       <vex-section-title
-        title="Assets Details"
+        title="Asset Details"
       />
       <asset-details :assetId="assetId"/>
     </ve-stack>
