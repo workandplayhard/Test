@@ -36,7 +36,9 @@
 
     methods: {
       handleCreateSuccess() {
-        // todo: redirect to Asset Details
+        this.$router.push({
+          name: 'concept',
+        });
       },
     }
   };

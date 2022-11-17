@@ -1,6 +1,6 @@
 <template>
   <vex-section>
-    <ve-stack>AssetList
+    <ve-stack>
       <vex-section-title
         :title="$t('marketplace.conceptPage.pageTitle')"
       >
