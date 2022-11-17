@@ -103,9 +103,7 @@
       },
 
       async createAsset() {
-        debugger;
-        const email = this.$attributes.getMappedData('nftItem.name', this.lazyFormData.attributes)?.value;
-        debugger;
+        const email = this.$attributes.getMappedData('nftItem.email', this.lazyFormData.attributes)?.value;
 
         let createdAssetId;
         try {
@@ -120,7 +118,6 @@
               ...this.lazyFormData
             }
           };
-          debugger;
 
           const { data: { _id } } = await this.$store.dispatch('nftItemDrafts/create', draftPayload);
 

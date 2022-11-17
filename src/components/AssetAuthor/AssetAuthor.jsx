@@ -12,18 +12,13 @@ export default defineComponent({
 
   computed: {
     authorName() {
-      // const { authors } = this.schemaData.data;
-
-      // if (!authors || !authors.length) return null;
-
-      // const authorId = authors[0];
-      // const author = this.$store.getters['users/one'](authorId);
-
-      // if (!author?.attributes) return null;
-
-      // return this.$attributes
-      //   .getMappedData('user.name', author.attributes)?.value;
-      return "Asset author name";
+      const { attributes } = this.schemaData.data;
+      console.log(this.schemaData.data);
+      const arr = Object.keys(attributes).reduce((arr, key) => {
+        return [...arr, { attributeId: key, value: attributes[key] }];
+      }, []);
+      const name = this.$attributes.getMappedData('nftItem.name', arr)?.value;
+      return name;
     }
   },
 

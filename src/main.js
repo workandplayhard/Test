@@ -67,13 +67,14 @@ const nftMarketplaceApp = new CreateApp(Vue, {
 
 const nftItemsModuleOptions = {
   attributesMappedKeys: [
-    // { key: 'price', label: 'Nft item price', allowedTypes: ['asset'] },
+    { key: 'email', label: 'Email', allowedTypes: ['text'] },
+    { key: 'name', label: 'Name', allowedTypes: ['text'] },
+    { key: 'title', label: 'Title', allowedTypes: ['text'] },
     {
       key: 'image',
       label: 'Image',
       allowedTypes: ['image']
     },
-    { key: 'name', label: 'Name', allowedTypes: ['text'] }
   ]
 };
 

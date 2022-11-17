@@ -69,7 +69,7 @@
         required: true
       },
 
-      nameAttributeKey: {
+      titleAttributeKey: {
         type: String,
         default: null
       },
@@ -100,7 +100,7 @@
     computed: {
       itemTitle() {
         const isAttributeName = this.$attributes.getMappedData(
-          this.nameAttributeKey,
+          this.titleAttributeKey,
           this.nftItemDraft.attributes
         )?.value;
         return isAttributeName ? ` ${isAttributeName}` : '';

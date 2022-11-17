@@ -14,7 +14,7 @@
         v-for="asset in list"
         :key="asset._id"
         :nft-item-draft="asset"
-        name-attribute-key="nftItem.name"
+        title-attribute-key="nftItem.title"
         :success-approve-message="$t('moderation.pendingAssets.approveSuccess')"
         :success-decline-message="$t('moderation.pendingAssets.declineSuccess')"
       />
