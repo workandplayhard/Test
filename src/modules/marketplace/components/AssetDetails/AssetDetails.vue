@@ -224,7 +224,7 @@
           }
           if (this.asset) {
             // await this.$store.dispatch('users/getOne', this.asset.authors[0]);
-            await this.$store.dispatch('nftCollections/getOne', this.asset.nftCollectionId);
+            // await this.$store.dispatch('nftCollections/getOne', this.asset.nftCollectionId);
           }
         } catch (error) {
           console.error(error);
