@@ -1,25 +1,15 @@
 <template>
   <div v-if="asset">
-    <vex-image
-      height="500"
-      :min-width="minImageWidth"
-      content-class="responsive-image"
-      full-view
-      :src="assetUrl"
+    <layout-renderer
+      :value="asset"
+      :schema="detailsSchema"
+      :schema-data="detailsSchemaData"
     />
-    <div>
-      <layout-renderer
-        :value="asset"
-        :schema="detailsSchema"
-        :schema-data="detailsSchemaData"
-      />
-    </div>
   </div>
 </template>
 
 <script>
   import { dateMixin } from '@/casimir-framework/all';
-  import { NftItemMetadataDraftStatus } from '@/casimir-framework/vars';
   import { VexImage } from '@/plugins/VuetifyExtended';
   import { attributeMethodsFactory, expandAttributes } from '@/casimir-framework/modules/attributes';
   import { attributedDetailsFactory, LayoutRenderer } from '@/casimir-framework/modules/layouts';
@@ -76,31 +66,6 @@
         return this.$store.getters['nftItemDrafts/one'](this.assetId);
       },
 
-      assetUrl() {
-        const image = this.$attributes.getMappedData('nftItem.image', this.asset.attributes);
-        if (!image) return null;
-
-        const scopeId = JSON.stringify({
-          nftCollectionId: this.asset.nftCollectionId,
-          nftItemId: this.asset.nftItemId
-        });
-
-        return this.$attributes.getFileSrc({
-          scope: 'nftItem',
-          scopeId,
-          attributeId: image.attributeId,
-          filename: image.value
-        });
-      },
-
-      minImageWidth() {
-        return this.$vuetify.breakpoint.xs ? null : '500';
-      },
-
-      isApprovedAsset() {
-        return this.asset.status === NftItemMetadataDraftStatus.APPROVED;
-      }
-
     },
 
     created() {
@@ -126,9 +91,3 @@
     }
   };
 </script>
-
-<style  lang="scss">
-  .responsive-image {
-    width: 100% !important;
-  }
-</style>
