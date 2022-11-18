@@ -4,13 +4,10 @@
       <vex-section-title
         :title="$t('marketplace.createAsset.formTitle')"
       />
-      <div class="d-flex align-center justify-center">
         <asset-create-form
           ref="createAssetForm"
-          class="d-block d-flex"
           @success="handleCreateSuccess"
         />
-      </div>
       <router-view />
     </ve-stack>
   </vex-section>
