@@ -1,11 +1,13 @@
 import { defineComponent } from '@/casimir-framework/all';
 import { VexImage } from '@/plugins/VuetifyExtended';
+import { VImg } from 'vuetify/lib/components';
 
 export default defineComponent({
   name: 'AssetFile',
 
   components: {
-    VexImage
+    // VexImage,
+    VImg
   },
 
   props: {
@@ -41,15 +43,25 @@ export default defineComponent({
     minImageWidth() {
       return '200';
     },
+
+    contentClass() {
+      const { smAndDown } = this.$vuetify.breakpoint;
+      return smAndDown ? "responsive-img-300px" : ""
+    },
   },
 
   render() {
-    return <vex-image 
+    // return <vex-image 
+    //   height="400" 
+    //   width="100%"
+    //   content-class="responsive-image" 
+    //   full-view 
+    //   src={this.assetUrl} />;
+
+     return <v-img
       height="400" 
       width="100%"
-      min-width={this.minImageWidth}
-      content-class="responsive-image" 
-      full-view 
+      content-class={this.contentClass}
       src={this.assetUrl} />;
   }
 });
