@@ -5,7 +5,6 @@
   >
     <v-form
       :disabled="loading"
-      class="v-sheet theme--light"
       @submit.prevent="handleSubmit(submit)"
     >
       <ve-stack>
