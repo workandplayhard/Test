@@ -10,7 +10,7 @@
             class="link text--primary d-block"
           >
             <!-- XXX: Put your logo here -->
-            5 creation already
+            See the Queue
           </router-link>
         </template>
       </vex-section-title>
