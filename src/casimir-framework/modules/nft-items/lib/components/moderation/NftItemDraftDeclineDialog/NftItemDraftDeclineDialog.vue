@@ -14,10 +14,10 @@
         }}
       </span>
 
-      <v-text-field
+      <!-- <v-text-field
         v-model="reason"
         :label="$t('module.nftItems.moderation.declineDialog.reason')"
-      />
+      /> -->
     </ve-stack>
   </vex-dialog>
 </template>
