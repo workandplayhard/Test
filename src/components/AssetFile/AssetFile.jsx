@@ -40,13 +40,9 @@ export default defineComponent({
       });
     },
 
-    minImageWidth() {
-      return '200';
-    },
-
     contentClass() {
       const { smAndDown } = this.$vuetify.breakpoint;
-      return smAndDown ? "responsive-img-300px" : ""
+      return smAndDown ? "responsive-img-w-300px" : ""
     },
   },
 
@@ -58,7 +54,7 @@ export default defineComponent({
     //   full-view 
     //   src={this.assetUrl} />;
 
-     return <v-img
+    return <v-img
       height="400" 
       width="100%"
       content-class={this.contentClass}
