@@ -7,7 +7,7 @@
       <div class="d-flex align-center justify-center">
         <asset-create-form
           ref="createAssetForm"
-          class="d-block ml-6 mr-6"
+          class="d-block d-flex"
           @success="handleCreateSuccess"
         />
       </div>
