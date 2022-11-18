@@ -7,7 +7,8 @@ import {
   AssetCollectionName,
   AssetStatus,
   AssetAuthor,
-  AssetFile
+  AssetFile,
+  AssetQueueNumber
 } from '@/components';
 
 export const layoutBuilderElements = {
@@ -69,7 +70,15 @@ export const layoutBuilderElements = {
             layoutType: 'details',
             scope: [AttributeScope.NFT_ITEM],
             disabledProps: ['schemaData']
-          }          
+          },
+          {
+            component: AssetQueueNumber,
+            icon: 'mdi-numeric',
+            blockType: 'simple',
+            layoutType: 'details',
+            scope: [AttributeScope.NFT_ITEM],
+            disabledProps: ['schemaData']
+          },
         ])
       ]
     }
@@ -80,6 +89,7 @@ export const layoutBuilderElements = {
     AssetCollectionName,
     AssetStatus,
     AssetAuthor,
-    AssetFile
+    AssetFile,
+    AssetQueueNumber
   }
 };

@@ -7,3 +7,4 @@ export * from './AssetCollectionName';
 export * from './AssetCreatedAt';
 export * from './AssetStatus';
 export * from './AssetFile';
+export * from './AssetQueueNumber';
