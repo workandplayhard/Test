@@ -79,7 +79,9 @@
     "sass-loader": "^10.1.1",
     "symlink-dir": "^5.0.1",
     "vue-template-compiler": "^2.6.14",
-    "vuetify-loader": "^1.7.2"
+    "vuetify-loader": "^1.7.2",
+    "v-clipboard": "^2.2.3",
+    "vue-deepset": "^0.6.3"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --fix"
