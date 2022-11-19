@@ -1,38 +1,39 @@
-import 'roboto-fontface/css/roboto/roboto-fontface.css';
-import './styles/app.scss';
-import '@mdi/font/css/materialdesignicons.css';
+import "roboto-fontface/css/roboto/roboto-fontface.css";
+import "./styles/app.scss";
+import "@mdi/font/css/materialdesignicons.css";
 
-import Vue from 'vue';
+import Vue from "vue";
 
-import { CreateApp } from '@/casimir-framework/all';
-import { ValidationPlugin } from '@/plugins/Validation';
-import { VuetifyExtended } from '@/plugins/VuetifyExtended';
+import { CreateApp } from "@/casimir-framework/all";
+import { ValidationPlugin } from "@/plugins/Validation";
+import { VuetifyExtended } from "@/plugins/VuetifyExtended";
 
-import { EnvModule } from '@/casimir-framework/modules/env';
+import { EnvModule } from "@/casimir-framework/modules/env";
 // import { PortalsModule } from '@casimir.one/portals-module';
-import { ScopesModule } from '@/casimir-framework/modules/scopes';
-import { AttributesModule } from '@/casimir-framework/modules/attributes';
-import { LayoutsModule } from '@/casimir-framework/modules/layouts';
+import { ScopesModule } from "@/casimir-framework/modules/scopes";
+import { AttributesModule } from "@/casimir-framework/modules/attributes";
+import { LayoutsModule } from "@/casimir-framework/modules/layouts";
 // import { AuthModule } from '@casimir.one/auth-module';
 // import { UsersModule } from '@casimir.one/users-module';
 // import { TeamsModule } from '@casimir.one/teams-module';
 // import { NftCollectionsModule } from '@casimir.one/nft-collections-module';
-import { NftItemsModule } from '@/casimir-framework/modules/nft-items';
+import { NftItemsModule } from "@/casimir-framework/modules/nft-items";
 // import { AssetsModule } from '@casimir.one/assets-module';
 
 // import { NftMarketplaceAuthModule } from '@/modules/auth';
-import { NftMarketplaceMarketplaceModule } from '@/modules/marketplace';
-import { NftMarketplaceAdminModule } from '@/modules/admin';
+import { NftMarketplaceMarketplaceModule } from "@/modules/marketplace";
+import { NftMarketplaceAdminModule } from "@/modules/admin";
 // import { NftMarketplaceProfileModule } from '@/modules/profile';
 // import { NftMarketplaceWalletModule } from '@/modules/wallet';
-import { NftMarketplaceModerationModule } from '@/modules/moderation';
+import { NftMarketplaceModerationModule } from "@/modules/moderation";
+import { QueueModule } from "@/modules/Queue";
 
-import vuetify from '@/plugins/vuetify';
-import i18n from '@/plugins/i18n';
-import router from '@/router';
-import store from '@/store';
-import App from '@/App';
-import { layoutBuilderElements } from '@/config/layoutBuilder';
+import vuetify from "@/plugins/vuetify";
+import i18n from "@/plugins/i18n";
+import router from "@/router";
+import store from "@/store";
+import App from "@/App";
+import { layoutBuilderElements } from "@/config/layoutBuilder";
 
 Vue.config.productionTip = false;
 
@@ -41,15 +42,15 @@ Object.defineProperties(Vue.prototype, {
   $eventBus: {
     get() {
       return EventBus;
-    }
-  }
+    },
+  },
 });
 
 const nftMarketplaceApp = new CreateApp(Vue, {
   vuetify,
   i18n,
   router,
-  store
+  store,
 });
 
 // const usersModuleOptions = {
@@ -67,22 +68,22 @@ const nftMarketplaceApp = new CreateApp(Vue, {
 
 const nftItemsModuleOptions = {
   attributesMappedKeys: [
-    { key: 'email', label: 'Email', allowedTypes: ['text'] },
-    { key: 'name', label: 'Name', allowedTypes: ['text'] },
-    { key: 'title', label: 'Title', allowedTypes: ['text'] },
+    { key: "email", label: "Email", allowedTypes: ["text"] },
+    { key: "name", label: "Name", allowedTypes: ["text"] },
+    { key: "title", label: "Title", allowedTypes: ["text"] },
     {
-      key: 'image',
-      label: 'Image',
-      allowedTypes: ['image']
+      key: "image",
+      label: "Image",
+      allowedTypes: ["image"],
     },
-  ]
+  ],
 };
 
 const layoutsModuleOptions = {
   blocks: layoutBuilderElements.blocks,
   components: {
-    ...layoutBuilderElements.components
-  }
+    ...layoutBuilderElements.components,
+  },
 };
 
 nftMarketplaceApp
@@ -107,6 +108,7 @@ nftMarketplaceApp
   .addModule(NftMarketplaceAdminModule)
   // .addModule(NftMarketplaceProfileModule)
   .addModule(NftMarketplaceModerationModule)
+  .addModule(QueueModule)
 
   .bootstrap()
 
@@ -116,8 +118,8 @@ nftMarketplaceApp
       i18n,
       router,
       store,
-      render: (h) => h(App)
+      render: (h) => h(App),
     });
 
-    app.$mount('#app');
- });
+    app.$mount("#app");
+  });
