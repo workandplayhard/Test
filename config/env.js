@@ -1,13 +1,21 @@
-const env = (process.env.DEIP_CONFIG || process.env.NODE_ENV === 'local')
-  ? 'local'
-  : process.env.NODE_ENV || 'development';
+// const env = (process.env.DEIP_CONFIG || process.env.NODE_ENV === 'local')
+//   ? 'local'
+//   : process.env.NODE_ENV || 'development';
+
+const env = "local";
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-require('dotenv').config({
+require("dotenv").config({
   path: `${__dirname}/${
     // eslint-disable-next-line no-nested-ternary
-    env === 'production' ? '.prod.env' : env === 'development' ? '.dev.env'
-      : process.env.DEIP_CONFIG ? (`.${process.env.DEIP_CONFIG}.env`) : '.local.env'}`
+    env === "production"
+      ? ".prod.env"
+      : env === "development"
+      ? ".dev.env"
+      : process.env.DEIP_CONFIG
+      ? `.${process.env.DEIP_CONFIG}.env`
+      : ".local.env"
+  }`,
 });
 
 const config = {
@@ -15,7 +23,9 @@ const config = {
 
   DEIP_SERVER_URL: process.env.DEIP_SERVER_URL,
   DEIP_WEB_SOCKET_URL: process.env.DEIP_WEB_SOCKET_URL,
-  DEIP_WEB_SOCKET_TIMEOUT: process.env.DEIP_WEB_SOCKET_TIMEOUT ? parseInt(process.env.DEIP_WEB_SOCKET_TIMEOUT) : 0,
+  DEIP_WEB_SOCKET_TIMEOUT: process.env.DEIP_WEB_SOCKET_TIMEOUT
+    ? parseInt(process.env.DEIP_WEB_SOCKET_TIMEOUT)
+    : 0,
   DEIP_FULL_NODE_URL: process.env.DEIP_FULL_NODE_URL,
   DEIP_CHAIN_EXPLORER_URL: process.env.DEIP_CHAIN_EXPLORER_URL,
   TENANT: process.env.TENANT,
@@ -32,7 +42,7 @@ const config = {
   VUE_APP_I18N_LOCALE: process.env.VUE_APP_I18N_LOCALE,
   VUE_APP_I18N_FALLBACK_LOCALE: process.env.VUE_APP_I18N_FALLBACK_LOCALE,
 
-  WALLET_URL: process.env.WALLET_URL
+  WALLET_URL: process.env.WALLET_URL,
 };
 
 module.exports = config;
