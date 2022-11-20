@@ -27,6 +27,7 @@ import { NftMarketplaceAdminModule } from "@/modules/admin";
 // import { NftMarketplaceWalletModule } from '@/modules/wallet';
 import { NftMarketplaceModerationModule } from "@/modules/moderation";
 import { QueueModule } from "@/modules/Queue";
+import { ManagerModule } from "@/modules/Manager";
 
 import vuetify from "@/plugins/vuetify";
 import i18n from "@/plugins/i18n";
@@ -109,6 +110,7 @@ nftMarketplaceApp
   // .addModule(NftMarketplaceProfileModule)
   .addModule(NftMarketplaceModerationModule)
   .addModule(QueueModule)
+  .addModule(ManagerModule)
 
   .bootstrap()
 
